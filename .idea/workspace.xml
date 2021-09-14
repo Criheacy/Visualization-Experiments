@@ -1,39 +1,573 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="965aa5c8-cf2b-40b0-8eb8-2d0ef7eab940" name="Default Changelist" comment="" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="docs: Update TODOLIST.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectId" id="1y7KLs7QYtTmKFjXQPWUi9CdP6p" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Less File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1v9zrCQV6KIENnfj7M9n73c1JdM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screens/main/task" />
+    <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="F:\SDU-iLearn\2021-7 FrontEnd\surveillance-system\node_modules\prettier" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="ts.external.directory.path" value="F:\SDU-Course\3-1\Visualization\visualization-experiments\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\task" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils\fetcher" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\device" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\record" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\dashboard" />
+      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="build" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="build" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.start" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="965aa5c8-cf2b-40b0-8eb8-2d0ef7eab940" name="Default Changelist" comment="" />
-      <created>1631597137614</created>
+      <changelist id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="" />
+      <created>1625989291531</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1631597137614</updated>
-      <workItem from="1631597140628" duration="43000" />
+      <updated>1625989291531</updated>
+      <workItem from="1625989296071" duration="17496000" />
+      <workItem from="1626054425568" duration="16869000" />
+      <workItem from="1626101302132" duration="5553000" />
+      <workItem from="1626138850320" duration="4792000" />
+      <workItem from="1626161906747" duration="5808000" />
+      <workItem from="1626169887466" duration="762000" />
+      <workItem from="1626233919535" duration="355000" />
+      <workItem from="1626234296919" duration="20191000" />
+      <workItem from="1626311401337" duration="21904000" />
+      <workItem from="1626355306564" duration="26890000" />
+      <workItem from="1626665409798" duration="303000" />
+      <workItem from="1626671740562" duration="3088000" />
+      <workItem from="1626686105611" duration="3156000" />
+      <workItem from="1626749104224" duration="14972000" />
+      <workItem from="1626856035030" duration="18028000" />
+      <workItem from="1626922053697" duration="6355000" />
+      <workItem from="1626954638904" duration="22526000" />
+      <workItem from="1627184183866" duration="2434000" />
+      <workItem from="1627189349302" duration="28553000" />
+      <workItem from="1627546709329" duration="24755000" />
+      <workItem from="1627608862966" duration="25501000" />
+      <workItem from="1627657695937" duration="21934000" />
+      <workItem from="1627868541400" duration="7330000" />
+      <workItem from="1628040654270" duration="477000" />
+      <workItem from="1628041225547" duration="10224000" />
+      <workItem from="1628125580697" duration="1725000" />
+      <workItem from="1628131269004" duration="5138000" />
+      <workItem from="1628333269643" duration="711000" />
+      <workItem from="1628498835683" duration="1400000" />
+      <workItem from="1628562172640" duration="2128000" />
+      <workItem from="1628566016531" duration="165000" />
+      <workItem from="1628580624451" duration="615000" />
+      <workItem from="1628832971744" duration="11150000" />
+      <workItem from="1628910568771" duration="32459000" />
+      <workItem from="1628995677008" duration="3536000" />
+      <workItem from="1628999580364" duration="92881000" />
+      <workItem from="1629354278649" duration="56923000" />
+      <workItem from="1629553361875" duration="848000" />
+      <workItem from="1629741948041" duration="909000" />
+      <workItem from="1629789903198" duration="2487000" />
+      <workItem from="1629898012466" duration="557000" />
+      <workItem from="1630137529799" duration="984000" />
+      <workItem from="1630396980374" duration="19843000" />
+      <workItem from="1630428045696" duration="79888000" />
+      <workItem from="1630999724746" duration="5783000" />
+      <workItem from="1631540554323" duration="2482000" />
+      <workItem from="1631586710572" duration="475000" />
+      <workItem from="1631587352821" duration="4358000" />
+      <workItem from="1631597955347" duration="794000" />
+      <workItem from="1631604234915" duration="489000" />
     </task>
+    <task id="LOCAL-00128" summary="fix: Amend form label name">
+      <created>1629389400435</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1629389400435</updated>
+    </task>
+    <task id="LOCAL-00129" summary="fix: Add fetch device on `TaskIndex` fragment">
+      <created>1629391249511</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1629391249511</updated>
+    </task>
+    <task id="LOCAL-00130" summary="feat: Add `TagList` component">
+      <created>1629393462922</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1629393462922</updated>
+    </task>
+    <task id="LOCAL-00131" summary="feat: Add reason type in task-card">
+      <created>1629393601506</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1629393601506</updated>
+    </task>
+    <task id="LOCAL-00132" summary="fix: Fix bug of cannot select item with `id=0` in form">
+      <created>1629445479561</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445479561</updated>
+    </task>
+    <task id="LOCAL-00133" summary="style: Change chart legend position">
+      <created>1629445520363</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445520363</updated>
+    </task>
+    <task id="LOCAL-00134" summary="fix: Fix bug of submitting all devices on creating task">
+      <created>1629445601544</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445601544</updated>
+    </task>
+    <task id="LOCAL-00135" summary="feat: Add task fetcher utility">
+      <created>1629445626374</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445626374</updated>
+    </task>
+    <task id="LOCAL-00136" summary="feat: Add `useFilter` hook for front-end filtering">
+      <created>1629445688459</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445688459</updated>
+    </task>
+    <task id="LOCAL-00137" summary="refactor: Remove `everyTask` in interface">
+      <created>1629445740602</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445740602</updated>
+    </task>
+    <task id="LOCAL-00138" summary="feat: Add task filter">
+      <created>1629445767210</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445767210</updated>
+    </task>
+    <task id="LOCAL-00139" summary="style: Add space on login button">
+      <created>1629445801800</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445801800</updated>
+    </task>
+    <task id="LOCAL-00140" summary="chore: Exports `cleanObject` utility function">
+      <created>1629445829791</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1629445829791</updated>
+    </task>
+    <task id="LOCAL-00141" summary="style: Change style of `StartTask` button">
+      <created>1629448098235</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1629448098235</updated>
+    </task>
+    <task id="LOCAL-00142" summary="style: Change `Export` button style">
+      <created>1629448134220</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1629448134220</updated>
+    </task>
+    <task id="LOCAL-00143" summary="fix: Fix bug of filtering task by state">
+      <created>1629448924489</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1629448924489</updated>
+    </task>
+    <task id="LOCAL-00144" summary="style: Set maxWidth of bar chart">
+      <created>1629451382912</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1629451382912</updated>
+    </task>
+    <task id="LOCAL-00145" summary="style: Display `Empty` message on chart when no data is available">
+      <created>1629451452448</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1629451452448</updated>
+    </task>
+    <task id="LOCAL-00146" summary="doc: Update TODOLIST.md">
+      <created>1629451465157</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1629451465157</updated>
+    </task>
+    <task id="LOCAL-00147" summary="feat: Add document title">
+      <created>1629451783027</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1629451783027</updated>
+    </task>
+    <task id="LOCAL-00148" summary="chore: Clean warnings and unused imports">
+      <created>1629454166747</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1629454166747</updated>
+    </task>
+    <task id="LOCAL-00149" summary="style: Change chart style">
+      <created>1629463953287</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1629463953287</updated>
+    </task>
+    <task id="LOCAL-00150" summary="feat: Add main navigator menu">
+      <created>1630417570343</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1630417570343</updated>
+    </task>
+    <task id="LOCAL-00151" summary="feat: Add navigator to main fragment">
+      <created>1630417635392</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1630417635392</updated>
+    </task>
+    <task id="LOCAL-00152" summary="feat: Add CCB logo">
+      <created>1630417663895</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1630417663895</updated>
+    </task>
+    <task id="LOCAL-00153" summary="refactor: Rename `recordlist` to `record`">
+      <created>1630418218375</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1630418218375</updated>
+    </task>
+    <task id="LOCAL-00154" summary="feat: Adjust fixed style for `Header` and `Aside`">
+      <created>1630432795991</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1630432795991</updated>
+    </task>
+    <task id="LOCAL-00155" summary="feat: Add breadcrumb navigator">
+      <created>1630432843933</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1630432843933</updated>
+    </task>
+    <task id="LOCAL-00156" summary="feat: Adjust navigator style">
+      <created>1630465570523</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1630465570523</updated>
+    </task>
+    <task id="LOCAL-00157" summary="refactor: Extract `CollapsibleList` as component">
+      <created>1630465629816</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1630465629816</updated>
+    </task>
+    <task id="LOCAL-00158" summary="chore: Clean code">
+      <created>1630465778424</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1630465778424</updated>
+    </task>
+    <task id="LOCAL-00159" summary="feat(chart.tsx): Adjust chart size">
+      <created>1630466211285</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1630466211285</updated>
+    </task>
+    <task id="LOCAL-00160" summary="feat(aside.tsx): Change dashboard aside to list style">
+      <created>1630477906890</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1630477906890</updated>
+    </task>
+    <task id="LOCAL-00161" summary="feat: Implement global breadcrumb navigator">
+      <created>1630478006005</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1630478006005</updated>
+    </task>
+    <task id="LOCAL-00162" summary="feat: Add filter-bar component">
+      <created>1630546836824</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1630546836824</updated>
+    </task>
+    <task id="LOCAL-00163" summary="refactor(http.ts): Change `useHttp` signature to `Promise` type">
+      <created>1630637699648</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1630637699648</updated>
+    </task>
+    <task id="LOCAL-00164" summary="feat: Add general list">
+      <created>1630638191010</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1630638191010</updated>
+    </task>
+    <task id="LOCAL-00165" summary="feat: Add usages for general-list">
+      <created>1630650914097</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1630650914097</updated>
+    </task>
+    <task id="LOCAL-00166" summary="feat: Change `RecordItem` interface props">
+      <created>1630650987966</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1630650987966</updated>
+    </task>
+    <task id="LOCAL-00167" summary="feat: Add history task and task navigation">
+      <created>1630651016846</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1630651016846</updated>
+    </task>
+    <task id="LOCAL-00168" summary="feat: Implement pagination bar">
+      <created>1630770497952</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1630770497952</updated>
+    </task>
+    <task id="LOCAL-00169" summary="feat(filter.ts): Implement new filter hook">
+      <created>1630770690947</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1630770690947</updated>
+    </task>
+    <task id="LOCAL-00170" summary="feat: `general-list` now stores non-list items">
+      <created>1630770843066</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1630770843066</updated>
+    </task>
+    <task id="LOCAL-00171" summary="feat: Change `record` and `task` API for pagination">
+      <created>1630771099150</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1630771099150</updated>
+    </task>
+    <task id="LOCAL-00172" summary="fix: Amend typo error in `generalList`">
+      <created>1630771161440</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1630771161440</updated>
+    </task>
+    <task id="LOCAL-00173" summary="fix: Change `useForm`(deprecated) to new `useFilter`">
+      <created>1630771218394</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1630771218395</updated>
+    </task>
+    <task id="LOCAL-00174" summary="chore: Add `zh-CN` language config">
+      <created>1630771247700</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1630771247700</updated>
+    </task>
+    <task id="LOCAL-00175" summary="fix: `setFilterProps` will get previous state">
+      <created>1630772135624</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1630772135624</updated>
+    </task>
+    <task id="LOCAL-00176" summary="docs: Update TODOLIST.md">
+      <created>1630848889147</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1630848889147</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="feature_filter-bar" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Add CCB logo" />
+    <MESSAGE value="refactor: Rename `recordlist` to `record`" />
+    <MESSAGE value="feat: Adjust fixed style for `Header` and `Aside`" />
+    <MESSAGE value="feat: Add breadcrumb navigator" />
+    <MESSAGE value="feat: Adjust navigator style" />
+    <MESSAGE value="refactor: Extract `CollapsibleList` as component" />
+    <MESSAGE value="chore: Clean code" />
+    <MESSAGE value="feat(chart.tsx): Adjust chart size" />
+    <MESSAGE value="feat(aside.tsx): Change dashboard aside to list style" />
+    <MESSAGE value="feat: Implement global breadcrumb navigator" />
+    <MESSAGE value="feat: Add filter-bar component" />
+    <MESSAGE value="refactor(http.ts): Change `useHttp` signature to `Promise` type" />
+    <MESSAGE value="feat: Add general list" />
+    <MESSAGE value="feat: Add usages for general-list" />
+    <MESSAGE value="feat: Change `RecordItem` interface props" />
+    <MESSAGE value="feat: Add history task and task navigation" />
+    <MESSAGE value="feat: Implement pagination bar" />
+    <MESSAGE value="feat(filter.ts): Implement new filter hook" />
+    <MESSAGE value="feat: `general-list` now stores non-list items" />
+    <MESSAGE value="feat: Change `record` and `task` API for pagination" />
+    <MESSAGE value="fix: Amend typo error in `generalList`" />
+    <MESSAGE value="fix: Change `useForm`(deprecated) to new `useFilter`" />
+    <MESSAGE value="chore: Add `zh-CN` language config" />
+    <MESSAGE value="fix: `setFilterProps` will get previous state" />
+    <MESSAGE value="docs: Update TODOLIST.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: Update TODOLIST.md" />
   </component>
 </project>
