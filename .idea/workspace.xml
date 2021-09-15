@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="chore: add coding config">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="chore: fix lint-staged working problem">
+      <change afterPath="$PROJECT_DIR$/src/experiments/exp1.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/experiments/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useD3.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/visualization-experiments.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/visualization-experiments.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Less File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -60,7 +66,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="F:\SDU-iLearn\2021-7 FrontEnd\surveillance-system\node_modules\prettier" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.VCS" />
     <property name="ts.external.directory.path" value="F:\SDU-Course\3-1\Visualization\visualization-experiments\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -157,14 +163,9 @@
       <workItem from="1631586710572" duration="475000" />
       <workItem from="1631587352821" duration="4358000" />
       <workItem from="1631597955347" duration="794000" />
-      <workItem from="1631604234915" duration="1233000" />
-    </task>
-    <task id="LOCAL-00129" summary="fix: Add fetch device on `TaskIndex` fragment">
-      <created>1629391249511</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1629391249511</updated>
+      <workItem from="1631604234915" duration="2608000" />
+      <workItem from="1631606879567" duration="14116000" />
+      <workItem from="1631679058043" duration="8583000" />
     </task>
     <task id="LOCAL-00130" summary="feat: Add `TagList` component">
       <created>1629393462922</created>
@@ -502,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631605137431</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="chore: fix lint-staged working problem">
+      <created>1631605542416</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1631605542416</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +527,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature_filter-bar" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -533,7 +541,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: Rename `recordlist` to `record`" />
     <MESSAGE value="feat: Adjust fixed style for `Header` and `Aside`" />
     <MESSAGE value="feat: Add breadcrumb navigator" />
     <MESSAGE value="feat: Adjust navigator style" />
@@ -558,6 +565,7 @@
     <MESSAGE value="fix: `setFilterProps` will get previous state" />
     <MESSAGE value="docs: Update TODOLIST.md" />
     <MESSAGE value="chore: add coding config" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add coding config" />
+    <MESSAGE value="chore: fix lint-staged working problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: fix lint-staged working problem" />
   </component>
 </project>
