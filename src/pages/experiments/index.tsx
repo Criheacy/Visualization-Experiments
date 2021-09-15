@@ -1,5 +1,5 @@
 import { Route, Routes, useParams } from "react-router-dom";
-import { ExperimentOne } from "./exp1";
+import { ExperimentOne } from "./experiment-1";
 import styled from "@emotion/styled";
 
 export const ExperimentPage = () => {

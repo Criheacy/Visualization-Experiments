@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add experiment#1 chart">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="refactor: reorganize the directory structure">
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/exp1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/experiments/exp1.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/experiment-data/exp1/titanic_disaster.csv" beforeDir="false" afterPath="$PROJECT_DIR$/public/experiment-data/experiment-1/titanic_disaster.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/experiments/exp1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/experiments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +78,11 @@
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1" />
+      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\record" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main" />
-      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\dashboard" />
-      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils\static" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -160,14 +165,7 @@
       <workItem from="1631604234915" duration="2608000" />
       <workItem from="1631606879567" duration="14116000" />
       <workItem from="1631679058043" duration="9355000" />
-      <workItem from="1631698504379" duration="3652000" />
-    </task>
-    <task id="LOCAL-00133" summary="style: Change chart legend position">
-      <created>1629445520363</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1629445520363</updated>
+      <workItem from="1631698504379" duration="5003000" />
     </task>
     <task id="LOCAL-00134" summary="fix: Fix bug of submitting all devices on creating task">
       <created>1629445601544</created>
@@ -505,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631692404534</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="feat: add label number on bar">
+      <created>1631716437888</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1631716437888</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,8 +541,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: Extract `CollapsibleList` as component" />
-    <MESSAGE value="chore: Clean code" />
     <MESSAGE value="feat(chart.tsx): Adjust chart size" />
     <MESSAGE value="feat(aside.tsx): Change dashboard aside to list style" />
     <MESSAGE value="feat: Implement global breadcrumb navigator" />
@@ -561,6 +564,8 @@
     <MESSAGE value="feat: add simple routers" />
     <MESSAGE value="feat: import d3 hooks" />
     <MESSAGE value="feat: add experiment#1 chart" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add experiment#1 chart" />
+    <MESSAGE value="feat: add label number on bar" />
+    <MESSAGE value="refactor: reorganize the directory structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: reorganize the directory structure" />
   </component>
 </project>
