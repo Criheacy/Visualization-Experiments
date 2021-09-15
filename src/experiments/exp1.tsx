@@ -43,7 +43,7 @@ export const ExperimentOne = () => {
         return;
       }
       const height = 300; // +svg.style("height");
-      const width = 300; // +svg.style("width");
+      const width = 400; // +svg.style("width");
 
       const margin = {
         top: 40,
@@ -96,6 +96,14 @@ export const ExperimentOne = () => {
             .attr("y", (item) => y(item.count.female))
             .attr("height", (item) => y(0) - y(item.count.female));
 
+          g.append("text")
+            .attr("class", "label")
+            .text((item) => item.count.female)
+            .attr("x", (item) => (x(item.class) || 0) + x.bandwidth() / 4)
+            .attr("y", (item) => y(item.count.female) - 4)
+            .attr("font-size", 12)
+            .attr("text-anchor", "middle");
+
           g.append("rect")
             .attr("class", "bar")
             .attr("fill", "red")
@@ -103,6 +111,15 @@ export const ExperimentOne = () => {
             .attr("width", x.bandwidth() / 2)
             .attr("y", (item) => y(item.count.male))
             .attr("height", (item) => y(0) - y(item.count.male));
+
+          g.append("text")
+            .attr("class", "label")
+            .text((item) => item.count.male)
+            .attr("x", (item) => (x(item.class) || 0) + (x.bandwidth() * 3) / 4)
+            .attr("y", (item) => y(item.count.male) - 4)
+            .attr("font-size", 12)
+            .attr("text-anchor", "middle");
+
           return g;
         });
     },
