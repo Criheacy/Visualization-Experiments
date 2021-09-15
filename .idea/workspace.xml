@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="chore: fix lint-staged working problem">
-      <change afterPath="$PROJECT_DIR$/src/experiments/exp1.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/experiments/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useD3.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/visualization-experiments.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/visualization-experiments.iml" afterDir="false" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add experiment#1 chart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/experiments/exp1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/experiments/exp1.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,28 +159,7 @@
       <workItem from="1631597955347" duration="794000" />
       <workItem from="1631604234915" duration="2608000" />
       <workItem from="1631606879567" duration="14116000" />
-      <workItem from="1631679058043" duration="8583000" />
-    </task>
-    <task id="LOCAL-00130" summary="feat: Add `TagList` component">
-      <created>1629393462922</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1629393462922</updated>
-    </task>
-    <task id="LOCAL-00131" summary="feat: Add reason type in task-card">
-      <created>1629393601506</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1629393601506</updated>
-    </task>
-    <task id="LOCAL-00132" summary="fix: Fix bug of cannot select item with `id=0` in form">
-      <created>1629445479561</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1629445479561</updated>
+      <workItem from="1631679058043" duration="9355000" />
     </task>
     <task id="LOCAL-00133" summary="style: Change chart legend position">
       <created>1629445520363</created>
@@ -510,7 +483,28 @@
       <option name="project" value="LOCAL" />
       <updated>1631605542416</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="feat: add simple routers">
+      <created>1631692277958</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1631692277958</updated>
+    </task>
+    <task id="LOCAL-00180" summary="feat: import d3 hooks">
+      <created>1631692372203</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1631692372204</updated>
+    </task>
+    <task id="LOCAL-00181" summary="feat: add experiment#1 chart">
+      <created>1631692404534</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1631692404534</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +521,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
@@ -541,9 +535,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Adjust fixed style for `Header` and `Aside`" />
-    <MESSAGE value="feat: Add breadcrumb navigator" />
-    <MESSAGE value="feat: Adjust navigator style" />
     <MESSAGE value="refactor: Extract `CollapsibleList` as component" />
     <MESSAGE value="chore: Clean code" />
     <MESSAGE value="feat(chart.tsx): Adjust chart size" />
@@ -566,6 +557,9 @@
     <MESSAGE value="docs: Update TODOLIST.md" />
     <MESSAGE value="chore: add coding config" />
     <MESSAGE value="chore: fix lint-staged working problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: fix lint-staged working problem" />
+    <MESSAGE value="feat: add simple routers" />
+    <MESSAGE value="feat: import d3 hooks" />
+    <MESSAGE value="feat: add experiment#1 chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add experiment#1 chart" />
   </component>
 </project>

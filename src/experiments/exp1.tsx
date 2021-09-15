@@ -86,21 +86,25 @@ export const ExperimentOne = () => {
         .attr("class", "plot-area")
         .selectAll(".bar")
         .data(data)
-        .join("rect")
-        .attr("class", "bar")
-        .attr("fill", "steelblue")
-        .attr("x", (item) => x(item.class) || null)
-        .attr("width", x.bandwidth() / 2)
-        .attr("y", (item) => y(item.count.female))
-        .attr("height", (item) => y(0) - y(item.count.female))
+        .join((enter) => {
+          const g = enter.append("g");
+          g.append("rect")
+            .attr("class", "bar")
+            .attr("fill", "steelblue")
+            .attr("x", (item) => x(item.class) || null)
+            .attr("width", x.bandwidth() / 2)
+            .attr("y", (item) => y(item.count.female))
+            .attr("height", (item) => y(0) - y(item.count.female));
 
-        .join("rect")
-        .attr("class", "bar")
-        .attr("fill", "red")
-        .attr("x", (item) => (x(item.class) || 0) + x.bandwidth())
-        .attr("width", x.bandwidth() / 2)
-        .attr("y", (item) => y(item.count.male))
-        .attr("height", (item) => y(0) - y(item.count.male));
+          g.append("rect")
+            .attr("class", "bar")
+            .attr("fill", "red")
+            .attr("x", (item) => (x(item.class) || 0) + x.bandwidth() / 2)
+            .attr("width", x.bandwidth() / 2)
+            .attr("y", (item) => y(item.count.male))
+            .attr("height", (item) => y(0) - y(item.count.male));
+          return g;
+        });
     },
     [data]
   );
