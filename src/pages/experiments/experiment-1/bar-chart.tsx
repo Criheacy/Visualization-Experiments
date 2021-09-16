@@ -1,9 +1,9 @@
 import { useSVG } from "hooks/useD3";
 import * as d3 from "d3";
 import React from "react";
-import { BarChartItem } from "./index";
+import { ChartDataItem } from "./index";
 
-const BarChart = ({ data }: { data: BarChartItem[] }) => {
+const BarChart = ({ data }: { data: ChartDataItem[] }) => {
   const svgRef = useSVG(
     (svg) => {
       if (!data) {

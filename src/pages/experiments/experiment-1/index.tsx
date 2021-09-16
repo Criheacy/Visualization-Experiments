@@ -10,7 +10,7 @@ interface TitanicDisasterItem {
   Count: number;
 }
 
-export interface BarChartItem {
+export interface ChartDataItem {
   class: string;
   count: {
     female: number;
@@ -18,7 +18,7 @@ export interface BarChartItem {
   };
 }
 
-const toChartItem = (rawData: TitanicDisasterItem[]): BarChartItem[] =>
+const toChartItem = (rawData: TitanicDisasterItem[]): ChartDataItem[] =>
   rawData.reduce((prev, rawDataItem) => {
     let prevItem = prev.find((item) => item.class === rawDataItem.Class);
     if (!prevItem) {
@@ -27,10 +27,10 @@ const toChartItem = (rawData: TitanicDisasterItem[]): BarChartItem[] =>
     }
     prevItem.count[rawDataItem.Sex as "female" | "male"] += rawDataItem.Count;
     return prev;
-  }, [] as BarChartItem[]);
+  }, [] as ChartDataItem[]);
 
 export const ExperimentOne = () => {
-  const [data, setData] = useState<BarChartItem[] | undefined>();
+  const [data, setData] = useState<ChartDataItem[] | undefined>();
 
   useEffect(() => {
     d3.csv(
@@ -57,3 +57,24 @@ export const ExperimentOne = () => {
     </ContentContainer>
   );
 };
+
+const ContentContainer = styled.div`
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "chart-1 chart-2"
+    "chart-3 chart-4";
+  grid-gap: 1rem;
+`;
+
+const ChartContainer = styled.div<{ id: string }>`
+  grid-area: chart-${(props) => props.id};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #808080;
+`;
