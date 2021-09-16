@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="fix: swap bar color for female and male">
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/pie-chart.tsx" afterDir="false" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add tree chart">
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,28 +161,7 @@
       <workItem from="1631604234915" duration="2608000" />
       <workItem from="1631606879567" duration="14116000" />
       <workItem from="1631679058043" duration="9355000" />
-      <workItem from="1631698504379" duration="11294000" />
-    </task>
-    <task id="LOCAL-00136" summary="feat: Add `useFilter` hook for front-end filtering">
-      <created>1629445688459</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1629445688459</updated>
-    </task>
-    <task id="LOCAL-00137" summary="refactor: Remove `everyTask` in interface">
-      <created>1629445740602</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1629445740602</updated>
-    </task>
-    <task id="LOCAL-00138" summary="feat: Add task filter">
-      <created>1629445767210</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1629445767210</updated>
+      <workItem from="1631698504379" duration="22420000" />
     </task>
     <task id="LOCAL-00139" summary="style: Add space on login button">
       <created>1629445801800</created>
@@ -509,7 +485,28 @@
       <option name="project" value="LOCAL" />
       <updated>1631756784483</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL-00185" summary="chore: change d3 version from `v7.0.1` to `v6.7.0`">
+      <created>1631757399570</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1631757399570</updated>
+    </task>
+    <task id="LOCAL-00186" summary="feat: add multiple chart container">
+      <created>1631757445231</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1631757445231</updated>
+    </task>
+    <task id="LOCAL-00187" summary="feat: add pie chart">
+      <created>1631757470589</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1631757470589</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,10 +537,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(aside.tsx): Change dashboard aside to list style" />
-    <MESSAGE value="feat: Implement global breadcrumb navigator" />
-    <MESSAGE value="feat: Add filter-bar component" />
-    <MESSAGE value="refactor(http.ts): Change `useHttp` signature to `Promise` type" />
     <MESSAGE value="feat: Add general list" />
     <MESSAGE value="feat: Add usages for general-list" />
     <MESSAGE value="feat: Change `RecordItem` interface props" />
@@ -565,6 +558,10 @@
     <MESSAGE value="feat: add label number on bar" />
     <MESSAGE value="refactor: reorganize the directory structure" />
     <MESSAGE value="fix: swap bar color for female and male" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: swap bar color for female and male" />
+    <MESSAGE value="chore: change d3 version from `v7.0.1` to `v6.7.0`" />
+    <MESSAGE value="feat: add multiple chart container" />
+    <MESSAGE value="feat: add pie chart" />
+    <MESSAGE value="feat: add tree chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add tree chart" />
   </component>
 </project>

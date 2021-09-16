@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import BarChart from "./bar-chart";
 import styled from "@emotion/styled";
 import PieChart from "./pie-chart";
+import TreeChart from "./tree-chart";
 
 interface TitanicDisasterItem {
   Class: string;
@@ -50,7 +51,9 @@ export const ExperimentOne = () => {
           <ChartContainer id={"2"}>
             <PieChart data={data} />
           </ChartContainer>
-          <ChartContainer id={"3"}></ChartContainer>
+          <ChartContainer id={"3"}>
+            <TreeChart data={data} />
+          </ChartContainer>
           <ChartContainer id={"4"}></ChartContainer>
         </>
       ) : null}
