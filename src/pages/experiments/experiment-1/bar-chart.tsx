@@ -57,7 +57,7 @@ const BarChart = ({ data }: { data: BarChartItem[] }) => {
           const g = enter.append("g");
           g.append("rect")
             .attr("class", "bar")
-            .attr("fill", "steelblue")
+            .attr("fill", "red")
             .attr("x", (item) => x(item.class) || null)
             .attr("width", x.bandwidth() / 2)
             .attr("y", (item) => y(item.count.female))
@@ -73,7 +73,7 @@ const BarChart = ({ data }: { data: BarChartItem[] }) => {
 
           g.append("rect")
             .attr("class", "bar")
-            .attr("fill", "red")
+            .attr("fill", "steelblue")
             .attr("x", (item) => (x(item.class) || 0) + x.bandwidth() / 2)
             .attr("width", x.bandwidth() / 2)
             .attr("y", (item) => y(item.count.male))
