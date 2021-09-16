@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="refactor: reorganize the directory structure">
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="fix: swap bar color for female and male">
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/pie-chart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/experiment-data/exp1/titanic_disaster.csv" beforeDir="false" afterPath="$PROJECT_DIR$/public/experiment-data/experiment-1/titanic_disaster.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/exp1.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/experiments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/screens/main/task" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/experiments/experiment-1" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -71,11 +70,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\task" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils\fetcher" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\device" />
-      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1" />
@@ -165,21 +164,7 @@
       <workItem from="1631604234915" duration="2608000" />
       <workItem from="1631606879567" duration="14116000" />
       <workItem from="1631679058043" duration="9355000" />
-      <workItem from="1631698504379" duration="5003000" />
-    </task>
-    <task id="LOCAL-00134" summary="fix: Fix bug of submitting all devices on creating task">
-      <created>1629445601544</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1629445601544</updated>
-    </task>
-    <task id="LOCAL-00135" summary="feat: Add task fetcher utility">
-      <created>1629445626374</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1629445626374</updated>
+      <workItem from="1631698504379" duration="11294000" />
     </task>
     <task id="LOCAL-00136" summary="feat: Add `useFilter` hook for front-end filtering">
       <created>1629445688459</created>
@@ -510,7 +495,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631716437888</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="refactor: reorganize the directory structure">
+      <created>1631717614810</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1631717614810</updated>
+    </task>
+    <task id="LOCAL-00184" summary="fix: swap bar color for female and male">
+      <created>1631756784482</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1631756784483</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +540,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(chart.tsx): Adjust chart size" />
     <MESSAGE value="feat(aside.tsx): Change dashboard aside to list style" />
     <MESSAGE value="feat: Implement global breadcrumb navigator" />
     <MESSAGE value="feat: Add filter-bar component" />
@@ -566,6 +564,7 @@
     <MESSAGE value="feat: add experiment#1 chart" />
     <MESSAGE value="feat: add label number on bar" />
     <MESSAGE value="refactor: reorganize the directory structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: reorganize the directory structure" />
+    <MESSAGE value="fix: swap bar color for female and male" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: swap bar color for female and male" />
   </component>
 </project>
