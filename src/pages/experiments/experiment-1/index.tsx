@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as d3 from "d3";
 import BarChart from "./bar-chart";
+import styled from "@emotion/styled";
+import PieChart from "./pie-chart";
 
 interface TitanicDisasterItem {
   Class: string;
@@ -38,5 +40,20 @@ export const ExperimentOne = () => {
     ).then((data) => setData(toChartItem(data as TitanicDisasterItem[])));
   }, []);
 
-  return data ? <BarChart data={data} /> : null;
+  return (
+    <ContentContainer>
+      {data ? (
+        <>
+          <ChartContainer id={"1"}>
+            <BarChart data={data} />
+          </ChartContainer>
+          <ChartContainer id={"2"}>
+            <PieChart data={data} />
+          </ChartContainer>
+          <ChartContainer id={"3"}></ChartContainer>
+          <ChartContainer id={"4"}></ChartContainer>
+        </>
+      ) : null}
+    </ContentContainer>
+  );
 };
