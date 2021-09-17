@@ -14,9 +14,7 @@ export const Experiment = () => {
   const { experimentId } = useParams();
 
   return (
-    <Container>
-      <ExperimentOne />
-    </Container>
+    <Container>{+experimentId === 1 ? <ExperimentOne /> : null}</Container>
   );
 
   // return <div>{experimentId}</div>

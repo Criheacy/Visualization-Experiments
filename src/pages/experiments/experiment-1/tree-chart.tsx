@@ -27,8 +27,6 @@ const TreeChart = ({ data }: { data: ChartDataItem[] }) => {
       const height = 300;
       const padding = 1.5;
 
-      console.log(toTreeChartRootNode(data));
-
       const root = d3
         .hierarchy<TreeChartNode>(toTreeChartRootNode(data))
         .sum((d: any) => d.value || 0);
