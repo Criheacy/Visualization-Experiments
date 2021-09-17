@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add numeric chart">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat(D3 hook): all elements in svg will be cleared every time it's updated">
+      <change afterPath="$PROJECT_DIR$/src/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useWindowDimensions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/numeric-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/numeric-chart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +18,7 @@
       <list>
         <option value="Less File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -162,21 +164,7 @@
       <workItem from="1631604234915" duration="2608000" />
       <workItem from="1631606879567" duration="14116000" />
       <workItem from="1631679058043" duration="9355000" />
-      <workItem from="1631698504379" duration="37150000" />
-    </task>
-    <task id="LOCAL-00142" summary="style: Change `Export` button style">
-      <created>1629448134220</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1629448134220</updated>
-    </task>
-    <task id="LOCAL-00143" summary="fix: Fix bug of filtering task by state">
-      <created>1629448924489</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1629448924489</updated>
+      <workItem from="1631698504379" duration="39167000" />
     </task>
     <task id="LOCAL-00144" summary="style: Set maxWidth of bar chart">
       <created>1629451382912</created>
@@ -507,7 +495,21 @@
       <option name="project" value="LOCAL" />
       <updated>1631866668202</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="feat: add break line in numeric chart">
+      <created>1631887826466</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1631887826466</updated>
+    </task>
+    <task id="LOCAL-00192" summary="feat(D3 hook): all elements in svg will be cleared every time it's updated">
+      <created>1631888924374</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1631888924374</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,8 +540,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Change `RecordItem` interface props" />
-    <MESSAGE value="feat: Add history task and task navigation" />
     <MESSAGE value="feat: Implement pagination bar" />
     <MESSAGE value="feat(filter.ts): Implement new filter hook" />
     <MESSAGE value="feat: `general-list` now stores non-list items" />
@@ -563,6 +563,8 @@
     <MESSAGE value="feat: add tree chart" />
     <MESSAGE value="refactor: remove deprecated tree chart function" />
     <MESSAGE value="feat: add numeric chart" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add numeric chart" />
+    <MESSAGE value="feat: add break line in numeric chart" />
+    <MESSAGE value="feat(D3 hook): all elements in svg will be cleared every time it's updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(D3 hook): all elements in svg will be cleared every time it's updated" />
   </component>
 </project>
