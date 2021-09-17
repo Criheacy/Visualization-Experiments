@@ -9,6 +9,9 @@ export const useSVG = (
 ) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
   useEffect(() => {
+    while (svgRef.current?.lastChild) {
+      svgRef.current?.removeChild(svgRef.current?.lastChild);
+    }
     render(d3.select(svgRef.current));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [render, ...dep]);
