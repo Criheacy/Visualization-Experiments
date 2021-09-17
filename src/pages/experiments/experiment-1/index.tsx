@@ -4,6 +4,7 @@ import BarChart from "./bar-chart";
 import styled from "@emotion/styled";
 import PieChart from "./pie-chart";
 import TreeChart from "./tree-chart";
+import NumericChart from "./numeric-chart";
 
 interface TitanicDisasterItem {
   Class: string;
@@ -54,7 +55,9 @@ export const ExperimentOne = () => {
           <ChartContainer id={"3"}>
             <TreeChart data={data} />
           </ChartContainer>
-          <ChartContainer id={"4"}></ChartContainer>
+          <ChartContainer id={"4"}>
+            <NumericChart data={data} />
+          </ChartContainer>
         </>
       ) : null}
     </ContentContainer>
