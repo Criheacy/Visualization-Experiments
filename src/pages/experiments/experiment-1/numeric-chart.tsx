@@ -1,5 +1,4 @@
 import React from "react";
-import * as d3 from "d3";
 import { useSVG } from "hooks/useD3";
 import { ChartDataItem } from "./index";
 
@@ -22,11 +21,9 @@ const toNumericChartData = (
 const NumericChart = ({ data }: { data: ChartDataItem[] }) => {
   const svgRef = useSVG(
     (svg) => {
-      const width = 300;
-      const height = 300;
+      const breakLine = 30;
 
-      const numericChartData = toNumericChartData(data);
-
+      const numericChartData = toNumericChartData(data, 0.1);
       svg
         .append("g")
         .attr("class", "plot-area")
@@ -40,18 +37,39 @@ const NumericChart = ({ data }: { data: ChartDataItem[] }) => {
             .attr("x", 0)
             .attr(
               "y",
-              (classItem) =>
-                (numericChartData.indexOf(classItem) || 0) * 50 + 30
+              (classItem, index) =>
+                (numericChartData.indexOf(classItem) +
+                  numericChartData
+                    .filter((chartData, numericIndex) => numericIndex < index)
+                    .reduce(
+                      (prev, classItem) =>
+                        prev +
+                          Math.floor(classItem.genders.length / breakLine) || 0,
+                      0
+                    )) *
+                  50 +
+                40
             )
-            .attr("font-size", 12);
+            .attr("font-size", 20);
 
           g.append("g")
             .attr("class", "numeric")
             .attr(
               "transform",
-              (classItem) =>
+              (classItem, index) =>
                 `translate(0, ${
-                  (numericChartData.indexOf(classItem) || 0) * 50 + 30
+                  (numericChartData.indexOf(classItem) +
+                    numericChartData
+                      .filter((chartData, numericIndex) => numericIndex < index)
+                      .reduce(
+                        (prev, classItem) =>
+                          prev +
+                            Math.floor(classItem.genders.length / breakLine) ||
+                          0,
+                        0
+                      )) *
+                    50 +
+                  30
                 })`
             )
             .selectAll(".numeric-item")
@@ -65,7 +83,9 @@ const NumericChart = ({ data }: { data: ChartDataItem[] }) => {
                 .attr(
                   "transform",
                   (numericItem, index) =>
-                    `translate(${index * 20 + 100 || 0}, 0)` + `scale(0.5, 0.5)`
+                    `translate(${(index % breakLine) * 20 + 100 || 0}, ${
+                      Math.floor(index / breakLine) * 50 - 25
+                    }) scale(0.5, 0.5)`
                 );
 
               subG
