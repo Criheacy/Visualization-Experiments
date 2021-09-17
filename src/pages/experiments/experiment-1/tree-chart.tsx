@@ -6,27 +6,9 @@ import { ChartDataItem } from "./index";
 interface TreeChartNode {
   name: string;
   children: TreeChartNode[];
-  value?: number;
 }
 
-interface BareTreeChartNode {
-  name: string;
-  children: BareTreeChartNode[];
-}
-
-/** @deprecated */
-const sumTreeValue = (node: BareTreeChartNode): TreeChartNode => {
-  if ((node as TreeChartNode).value) {
-    return node as TreeChartNode;
-  }
-  node.children.forEach((subNode) => sumTreeValue(subNode));
-  (node as TreeChartNode).value = node.children.reduce((prev, item) => {
-    return prev + ((item as TreeChartNode).value || 0);
-  }, 0);
-  return node as TreeChartNode;
-};
-
-const toTreeChartRootNode = (data: ChartDataItem[]): BareTreeChartNode => ({
+const toTreeChartRootNode = (data: ChartDataItem[]): TreeChartNode => ({
   name: "root",
   children: data.map((item) => ({
     name: item.class,
@@ -43,22 +25,16 @@ const TreeChart = ({ data }: { data: ChartDataItem[] }) => {
     (svg) => {
       const width = 300;
       const height = 300;
-      const padding = 1;
+      const padding = 1.5;
 
       console.log(toTreeChartRootNode(data));
 
       const root = d3
         .hierarchy<TreeChartNode>(toTreeChartRootNode(data))
-        .sum((d) => d.value || 0);
+        .sum((d: any) => d.value || 0);
 
-      console.log(root);
-
-      // Then d3.treemap computes the position of each element of the hierarchy
-      // The coordinates are added to the root object above
       d3.treemap<TreeChartNode>().size([width, height]).padding(padding)(root);
 
-      console.log(root.leaves());
-      // use this information to add rectangles:
       svg
         .selectAll("rect")
         .data(root.leaves())
@@ -70,7 +46,6 @@ const TreeChart = ({ data }: { data: ChartDataItem[] }) => {
         .attr("height", (d: any) => d.y1 - d.y0)
         .style("fill", "#69b3a2");
 
-      // and to add the text labels
       svg
         .selectAll("text")
         .data(root.leaves())
