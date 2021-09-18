@@ -112,10 +112,9 @@ const NumericChart = (props: ChartDataProps) => {
     <svg
       ref={svgRef}
       style={{
-        width: "100%",
-        height: "100%",
-        marginRight: "10px",
-        marginLeft: "10px",
+        width: "520",
+        height: "380",
+        margin: "auto",
       }}
     />
   );

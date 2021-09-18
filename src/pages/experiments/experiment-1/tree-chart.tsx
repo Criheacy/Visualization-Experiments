@@ -23,7 +23,7 @@ const toTreeChartRootNode = (data: ChartDataItem[]): TreeChartNode => ({
 const TreeChart = (props: ChartDataProps) => {
   const svgRef = useSVG(
     (svg) => {
-      const width = 420;
+      const width = 400;
       const height = 320;
       const padding = 1.5;
 
@@ -65,7 +65,7 @@ const TreeChart = (props: ChartDataProps) => {
     <svg
       ref={svgRef}
       style={{
-        width: 420,
+        width: 400,
         height: 320,
         margin: "auto",
       }}
