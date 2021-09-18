@@ -48,6 +48,25 @@ const PieChart = (props: ChartDataProps) => {
           .attr("fill", (d) =>
             props.colorMap(props.data[index].class, d.data[0])
           );
+
+        svg
+          .append("g")
+          .attr("transform", `translate(${width / 2}, ${height / 2})`)
+          .selectAll("text")
+          .data(pieChartData(subData))
+          .join("text")
+          .attr("transform", (d) => `translate(${arc.centroid(d)})`)
+          .attr("font-size", 12)
+          .attr("text-anchor", "middle")
+          .call((text) =>
+            text
+              .append("tspan")
+              .attr("y", "0.5em")
+              .text(
+                (d) =>
+                  `${Math.round(((d.endAngle - d.startAngle) / Math.PI) * 50)}%`
+              )
+          );
       });
     },
     [props.data]
