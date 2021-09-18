@@ -1,16 +1,13 @@
 import { useSVG } from "hooks/useD3";
 import * as d3 from "d3";
 import React from "react";
-import { ChartDataItem } from "./index";
+import { ChartDataProps } from "./index";
 
-const BarChart = ({ data }: { data: ChartDataItem[] }) => {
+const BarChart = (props: ChartDataProps) => {
   const svgRef = useSVG(
     (svg) => {
-      if (!data) {
-        return;
-      }
-      const height = 300; // +svg.style("height");
-      const width = 400; // +svg.style("width");
+      const width = 480;
+      const height = 360;
 
       const margin = {
         top: 40,
@@ -21,14 +18,14 @@ const BarChart = ({ data }: { data: ChartDataItem[] }) => {
 
       const x = d3
         .scaleBand()
-        .domain(data.map((item) => item.class))
+        .domain(props.data.map((item) => item.class))
         .range([margin.left, width - margin.right])
         .padding(0.2);
 
       const y = d3
         .scaleLinear()
         .domain([
-          d3.max(data, (item) =>
+          d3.max(props.data, (item) =>
             Math.max(item.count.female, item.count.male)
           ) || 0,
           0,
@@ -52,12 +49,12 @@ const BarChart = ({ data }: { data: ChartDataItem[] }) => {
         .append("g")
         .attr("class", "plot-area")
         .selectAll(".bar")
-        .data(data)
+        .data(props.data)
         .join((enter) => {
           const g = enter.append("g");
           g.append("rect")
             .attr("class", "bar")
-            .attr("fill", "red")
+            .attr("fill", (d) => props.colorMap(d.class, "female"))
             .attr("x", (item) => x(item.class) || null)
             .attr("width", x.bandwidth() / 2)
             .attr("y", (item) => y(item.count.female))
@@ -73,7 +70,7 @@ const BarChart = ({ data }: { data: ChartDataItem[] }) => {
 
           g.append("rect")
             .attr("class", "bar")
-            .attr("fill", "steelblue")
+            .attr("fill", (d) => props.colorMap(d.class, "male"))
             .attr("x", (item) => (x(item.class) || 0) + x.bandwidth() / 2)
             .attr("width", x.bandwidth() / 2)
             .attr("y", (item) => y(item.count.male))
@@ -90,17 +87,16 @@ const BarChart = ({ data }: { data: ChartDataItem[] }) => {
           return g;
         });
     },
-    [data]
+    [props.data]
   );
 
   return (
     <svg
       ref={svgRef}
       style={{
-        width: "100%",
-        height: "100%",
-        marginRight: "10px",
-        marginLeft: "10px",
+        width: "480",
+        height: "360",
+        margin: "auto",
       }}
     />
   );

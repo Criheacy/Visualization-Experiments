@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import * as d3 from "d3";
-import BarChart from "./bar-chart";
 import styled from "@emotion/styled";
+import BarChart from "./bar-chart";
 import PieChart from "./pie-chart";
 import TreeChart from "./tree-chart";
 import NumericChart from "./numeric-chart";
+import chroma from "chroma-js";
 
 interface TitanicDisasterItem {
   Class: string;
@@ -18,6 +19,12 @@ export interface ChartDataItem {
     female: number;
     male: number;
   };
+}
+
+export interface ChartDataProps {
+  data: ChartDataItem[];
+  colorMap: (className: string, gender: string) => string;
+  // dimensions: [number, number];
 }
 
 const toChartItem = (rawData: TitanicDisasterItem[]): ChartDataItem[] =>
@@ -42,21 +49,33 @@ export const ExperimentOne = () => {
     ).then((data) => setData(toChartItem(data as TitanicDisasterItem[])));
   }, []);
 
+  const colorMap = (className: string, gender: string) =>
+    chroma(
+      d3
+        .scaleOrdinal()
+        .domain(data?.map((item) => item.class) || [])
+        .range(["#ff9600", "#00cd77", "#36bfff", "#ba7cff"])(
+        className
+      ) as string
+    )
+      .brighten(gender === "female" ? 0.4 : -0.4)
+      .hex();
+
   return (
     <ContentContainer>
       {data ? (
         <>
           <ChartContainer id={"1"}>
-            <BarChart data={data} />
+            <BarChart data={data} colorMap={colorMap} />
           </ChartContainer>
           <ChartContainer id={"2"}>
-            <PieChart data={data} />
+            <PieChart data={data} colorMap={colorMap} />
           </ChartContainer>
           <ChartContainer id={"3"}>
-            <TreeChart data={data} />
+            <TreeChart data={data} colorMap={colorMap} />
           </ChartContainer>
           <ChartContainer id={"4"}>
-            <NumericChart data={data} />
+            <NumericChart data={data} colorMap={colorMap} />
           </ChartContainer>
         </>
       ) : null}

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add index page and simple navigator">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="ci/cd: deploy github pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/bar-chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/numeric-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/numeric-chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/pie-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/pie-chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +68,7 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="F:\SDU-iLearn\2021-7 FrontEnd\surveillance-system\node_modules\prettier" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.TypeScript" />
-    <property name="ts.external.directory.path" value="E:\WebStorm\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="F:\SDU-Course\3-1\Visualization\visualization-experiments\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -82,10 +87,20 @@
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\record" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.predeploy">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="build" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
@@ -110,6 +125,7 @@
     <list>
       <item itemvalue="npm.build" />
       <item itemvalue="npm.start" />
+      <item itemvalue="npm.deploy" />
       <item itemvalue="npm.predeploy" />
     </list>
     <recent_temporary>
@@ -179,13 +195,7 @@
       <workItem from="1631606879567" duration="14116000" />
       <workItem from="1631679058043" duration="9355000" />
       <workItem from="1631698504379" duration="40391000" />
-    </task>
-    <task id="LOCAL-00147" summary="feat: Add document title">
-      <created>1629451783027</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1629451783027</updated>
+      <workItem from="1631928639434" duration="14658000" />
     </task>
     <task id="LOCAL-00148" summary="chore: Clean warnings and unused imports">
       <created>1629454166747</created>
@@ -523,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631890433205</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="ci/cd: deploy github pages">
+      <created>1631892435170</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1631892435170</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +571,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: `general-list` now stores non-list items" />
     <MESSAGE value="feat: Change `record` and `task` API for pagination" />
     <MESSAGE value="fix: Amend typo error in `generalList`" />
     <MESSAGE value="fix: Change `useForm`(deprecated) to new `useFilter`" />
@@ -579,6 +595,7 @@
     <MESSAGE value="feat(D3 hook): all elements in svg will be cleared every time it's updated" />
     <MESSAGE value="feat(window hook): add hook to track dimension changes" />
     <MESSAGE value="feat: add index page and simple navigator" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add index page and simple navigator" />
+    <MESSAGE value="ci/cd: deploy github pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="ci/cd: deploy github pages" />
   </component>
 </project>

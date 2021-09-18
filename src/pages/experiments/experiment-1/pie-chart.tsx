@@ -1,13 +1,13 @@
 import { useSVG } from "hooks/useD3";
 import * as d3 from "d3";
 import React from "react";
-import { ChartDataItem } from "./index";
+import { ChartDataProps } from "./index";
 
-const PieChart = ({ data }: { data: ChartDataItem[] }) => {
+const PieChart = (props: ChartDataProps) => {
   const svgRef = useSVG(
     (svg) => {
-      const width = 300;
-      const height = 300;
+      const width = 360;
+      const height = 360;
       const margin = {
         top: 40,
         right: 40,
@@ -30,7 +30,7 @@ const PieChart = ({ data }: { data: ChartDataItem[] }) => {
 
       const pieChartData = d3.pie<[string, number]>().value((d) => d[1]);
 
-      data.forEach((item, index, array) => {
+      props.data.forEach((item, index, array) => {
         const arc = d3
           .arc<any>()
           .innerRadius((radius * (index + 1)) / (array.length + 1) + 5)
@@ -45,20 +45,21 @@ const PieChart = ({ data }: { data: ChartDataItem[] }) => {
 
           .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
           .attr("d", arc)
-          .attr("fill", (d) => (d.data[0] === "female" ? "red" : "steelblue"));
+          .attr("fill", (d) =>
+            props.colorMap(props.data[index].class, d.data[0])
+          );
       });
     },
-    [data]
+    [props.data]
   );
 
   return (
     <svg
       ref={svgRef}
       style={{
-        width: "100%",
-        height: "100%",
-        marginRight: "10px",
-        marginLeft: "10px",
+        width: "360",
+        height: "360",
+        margin: "auto",
       }}
     />
   );
