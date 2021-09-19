@@ -14,7 +14,7 @@
 
 ## 在线展示
 
-GitHub Pages: [点击访问](https://criheacy.github.io/Visualization-Experiments/)
+Vercel: [点击访问](https://vercel.com/criheacy/visualization-experiments)
 
 ## 实验截图
 
