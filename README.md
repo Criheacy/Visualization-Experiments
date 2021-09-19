@@ -14,7 +14,7 @@
 
 ## 在线展示
 
-Vercel: [点击访问](https://vercel.com/criheacy/visualization-experiments)
+Vercel: [点击访问](https://visualization-experiments.vercel.app/)
 
 ## 实验截图
 
