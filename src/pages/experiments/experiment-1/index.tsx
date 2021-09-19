@@ -43,8 +43,7 @@ export const ExperimentOne = () => {
 
   useEffect(() => {
     d3.csv(
-      process.env.PUBLIC_URL +
-        "/experiment-data/experiment-1/titanic_disaster.csv",
+      "../../experiment-data/experiment-1/titanic_disaster.csv",
       d3.autoType
     ).then((data) => setData(toChartItem(data as TitanicDisasterItem[])));
   }, []);

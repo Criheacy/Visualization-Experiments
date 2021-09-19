@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: change chart colors">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="chore: change csv reading directory">
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/res/titanic_disaster.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,26 +57,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/experiments/experiment-1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/experiments/experiment-1/res" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="F:\SDU-iLearn\2021-7 FrontEnd\surveillance-system\node_modules\prettier" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="F:\SDU-Course\3-1\Visualization\visualization-experiments\node_modules\prettier" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.TypeScript" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="F:\SDU-Course\3-1\Visualization\visualization-experiments\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1\res" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\task" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils\fetcher" />
-      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\device" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1\res" />
@@ -189,6 +195,7 @@
       <workItem from="1631679058043" duration="9355000" />
       <workItem from="1631698504379" duration="40391000" />
       <workItem from="1631928639434" duration="16337000" />
+      <workItem from="1632037710911" duration="5647000" />
     </task>
     <task id="LOCAL-00149" summary="style: Change chart style">
       <created>1629463953287</created>
@@ -550,7 +557,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="dev" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -564,10 +571,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: Amend typo error in `generalList`" />
-    <MESSAGE value="fix: Change `useForm`(deprecated) to new `useFilter`" />
-    <MESSAGE value="chore: Add `zh-CN` language config" />
-    <MESSAGE value="fix: `setFilterProps` will get previous state" />
     <MESSAGE value="docs: Update TODOLIST.md" />
     <MESSAGE value="chore: add coding config" />
     <MESSAGE value="chore: fix lint-staged working problem" />
@@ -589,6 +592,14 @@
     <MESSAGE value="feat: add index page and simple navigator" />
     <MESSAGE value="ci/cd: deploy github pages" />
     <MESSAGE value="feat: change chart colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: change chart colors" />
+    <MESSAGE value="deploy: deploy on github pages" />
+    <MESSAGE value="Merge branch 'dev'" />
+    <MESSAGE value="deploy: test" />
+    <MESSAGE value="chore: change csv reading directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: change csv reading directory" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

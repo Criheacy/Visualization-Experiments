@@ -7,15 +7,15 @@ export const IndexPage = () => {
 
   return (
     <Container>
-      <li>
+      <ul>
         {Array.from(Array(1).keys(), (index) => index + 1).map((index) => (
-          <ul>
+          <li>
             <Button onClick={() => navigate(`experiments/${index}`)}>
               实验{index}
             </Button>
-          </ul>
+          </li>
         ))}
-      </li>
+      </ul>
     </Container>
   );
 };
