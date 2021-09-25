@@ -6,6 +6,7 @@ import PieChart from "./pie-chart";
 import TreeChart from "./tree-chart";
 import NumericChart from "./numeric-chart";
 import chroma from "chroma-js";
+import { useParams } from "react-router-dom";
 
 interface TitanicDisasterItem {
   Class: string;
@@ -38,8 +39,38 @@ const toChartItem = (rawData: TitanicDisasterItem[]): ChartDataItem[] =>
     return prev;
   }, [] as ChartDataItem[]);
 
+const Legend = ({
+  data,
+  colorMap,
+}: {
+  data: ChartDataItem[];
+  colorMap: (className: string, gender: string) => string;
+}) => {
+  return (
+    <>
+      <LegendGroup>
+        <LegendLabel>female:</LegendLabel>
+        {data.map((item) => (
+          <LegendCard color={colorMap(item.class, "female")}>
+            {item.class}
+          </LegendCard>
+        ))}
+      </LegendGroup>
+      <LegendGroup>
+        <LegendLabel>male:</LegendLabel>
+        {data.map((item) => (
+          <LegendCard color={colorMap(item.class, "male")}>
+            {item.class}
+          </LegendCard>
+        ))}
+      </LegendGroup>
+    </>
+  );
+};
+
 export const ExperimentOne = () => {
   const [data, setData] = useState<ChartDataItem[] | undefined>();
+  const { experimentId } = useParams();
 
   useEffect(() => {
     d3.csv(
@@ -61,9 +92,14 @@ export const ExperimentOne = () => {
       .hex();
 
   return (
-    <ContentContainer>
+    <Container>
       {data ? (
         <>
+          <Header>
+            <Title>实验#{experimentId} - 可视化入门</Title>
+            <Divider />
+            <Legend data={data} colorMap={colorMap} />
+          </Header>
           <ChartContainer id={"1"}>
             <BarChart data={data} colorMap={colorMap} />
           </ChartContainer>
@@ -78,20 +114,62 @@ export const ExperimentOne = () => {
           </ChartContainer>
         </>
       ) : null}
-    </ContentContainer>
+    </Container>
   );
 };
 
-const ContentContainer = styled.div`
+const Container = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 15rem 1fr 1fr;
   grid-template-areas:
+    "header header"
     "chart-1 chart-2"
     "chart-3 chart-4";
   grid-gap: 1rem;
+`;
+
+const Header = styled.div`
+  grid-area: header;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Title = styled.div`
+  font-size: 3rem;
+  font-weight: bold;
+`;
+
+const Divider = styled.div`
+  margin: 1rem 2rem;
+  background-color: #e0e0e0;
+  height: 2px;
+  width: 100%;
+`;
+
+const LegendGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+`;
+
+const LegendLabel = styled.div`
+  width: 5rem;
+  text-align: right;
+`;
+
+const LegendCard = styled.div<{ color: string }>`
+  margin: 0 0.6rem;
+  padding: 0.2rem 0;
+  width: 6.5rem;
+  background-color: ${(props) => props.color};
+  text-align: center;
 `;
 
 const ChartContainer = styled.div<{ id: string }>`

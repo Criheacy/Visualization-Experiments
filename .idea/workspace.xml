@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="chore: change csv reading directory">
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/res/titanic_disaster.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,6 +192,9 @@
       <workItem from="1631698504379" duration="40391000" />
       <workItem from="1631928639434" duration="16337000" />
       <workItem from="1632037710911" duration="5647000" />
+      <workItem from="1632054258883" duration="37000" />
+      <workItem from="1632398195457" duration="1474000" />
+      <workItem from="1632538602969" duration="5172000" />
     </task>
     <task id="LOCAL-00149" summary="style: Change chart style">
       <created>1629463953287</created>
