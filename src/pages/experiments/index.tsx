@@ -1,6 +1,7 @@
 import { Route, Routes, useParams } from "react-router-dom";
-import { ExperimentOne } from "./experiment-1";
 import styled from "@emotion/styled";
+import { ExperimentOne } from "./experiment-1";
+import { ExperimentTwo } from "./experiment-2";
 
 export const ExperimentPage = () => {
   return (
@@ -14,7 +15,13 @@ export const Experiment = () => {
   const { experimentId } = useParams();
 
   return (
-    <Container>{+experimentId === 1 ? <ExperimentOne /> : null}</Container>
+    <Container>
+      {+experimentId === 1 ? (
+        <ExperimentOne />
+      ) : +experimentId === 2 ? (
+        <ExperimentTwo />
+      ) : null}
+    </Container>
   );
 
   // return <div>{experimentId}</div>

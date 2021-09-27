@@ -8,7 +8,7 @@ export const IndexPage = () => {
   return (
     <Container>
       <ul>
-        {Array.from(Array(1).keys(), (index) => index + 1).map((index) => (
+        {Array.from(Array(2).keys(), (index) => index + 1).map((index) => (
           <li>
             <Button onClick={() => navigate(`experiments/${index}`)}>
               实验{index}

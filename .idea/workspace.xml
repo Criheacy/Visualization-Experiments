@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="chore: change csv reading directory">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add legends">
+      <change afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/sunshine.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/res/sunshine.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/res/task.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/res/usa.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/tree-chart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/experiments/experiment-1/res" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/experiment-data" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -68,18 +74,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\public\experiment-data" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1\res" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\task" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main" />
-      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\utils\fetcher" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-2\res" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1\res" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src" />
-      <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main\record" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -194,14 +200,9 @@
       <workItem from="1632037710911" duration="5647000" />
       <workItem from="1632054258883" duration="37000" />
       <workItem from="1632398195457" duration="1474000" />
-      <workItem from="1632538602969" duration="5172000" />
-    </task>
-    <task id="LOCAL-00149" summary="style: Change chart style">
-      <created>1629463953287</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1629463953287</updated>
+      <workItem from="1632538602969" duration="11235000" />
+      <workItem from="1632644361748" duration="61000" />
+      <workItem from="1632740075978" duration="5705000" />
     </task>
     <task id="LOCAL-00150" summary="feat: Add main navigator menu">
       <created>1630417570343</created>
@@ -539,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631964954450</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="feat: add legends">
+      <created>1632553802649</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1632553802649</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +578,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docs: Update TODOLIST.md" />
     <MESSAGE value="chore: add coding config" />
     <MESSAGE value="chore: fix lint-staged working problem" />
     <MESSAGE value="feat: add simple routers" />
@@ -595,7 +602,8 @@
     <MESSAGE value="Merge branch 'dev'" />
     <MESSAGE value="deploy: test" />
     <MESSAGE value="chore: change csv reading directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: change csv reading directory" />
+    <MESSAGE value="feat: add legends" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add legends" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
