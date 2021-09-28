@@ -1,9 +1,9 @@
 import * as d3 from "d3";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useSVG } from "../../../hooks/useD3";
 import styled from "@emotion/styled";
 import chroma from "chroma-js";
+import { ExperimentHeader } from "../experiment-header";
 
 interface SunshineDataItem {
   city: string;
@@ -47,33 +47,30 @@ const toChartItem = (rawData: SunshineDataItem[]): ChartDataItem[] =>
     // so replace it with dash character "-".
     .map((item) => ({ ...item, city: item.city.replaceAll(" ", "-") }));
 
-export const ExperimentTwo = () => {
-  const [data, setData] = useState<ChartDataItem[] | undefined>();
-  const [mapSVG, setMapSVG] = useState<XMLDocument | undefined>();
-  const [locationSVG, setLocationSVG] = useState<XMLDocument | undefined>();
-  const { experimentId } = useParams();
+const Illustration = ({
+  title,
+  content,
+}: {
+  title: string;
+  content: string;
+}) => {
+  return (
+    <IllustrationContainer>
+      <IllustrationTitle>{title}</IllustrationTitle>
+      <IllustrationContentBlock>{content}</IllustrationContentBlock>
+    </IllustrationContainer>
+  );
+};
 
-  const resourcePath = `../../experiment-data/experiment-${experimentId}/`;
-
-  useEffect(() => {
-    // load data from csv file
-    d3.csv(resourcePath + "sunshine.csv", d3.autoType).then((data) =>
-      setData(toChartItem(data as SunshineDataItem[]))
-    );
-
-    console.log(
-      "../../experiment-data/experiment-2/usa.svg" === resourcePath + "usa.svg"
-    );
-
-    // load US map from svg
-    d3.xml(resourcePath + "usa.svg").then((data) => setMapSVG(data));
-    // load location map from svg
-    d3.xml(resourcePath + "location.svg").then((data) => {
-      console.log("data:", data);
-      setLocationSVG(data);
-    });
-  }, [experimentId, resourcePath]);
-
+const Chart = ({
+  data,
+  mapSVG,
+  locationSVG,
+}: {
+  data: ChartDataItem[];
+  mapSVG: XMLDocument;
+  locationSVG: XMLDocument;
+}) => {
   // map configurations
   const mapConfig = {
     canvasWidth: 1600,
@@ -114,10 +111,6 @@ export const ExperimentTwo = () => {
 
   const svgRef = useSVG(
     (svg) => {
-      if (!mapSVG || !locationSVG || !data) {
-        return;
-      }
-
       // city plot container
       svg
         .append("g")
@@ -327,23 +320,83 @@ export const ExperimentTwo = () => {
   );
 
   return (
-    <Container>
-      <svg
-        ref={svgRef}
-        style={{
-          width: "1600",
-          height: "600",
-          margin: "auto",
-        }}
+    <svg
+      ref={svgRef}
+      style={{
+        width: "1600",
+        height: "600",
+        margin: "auto",
+      }}
+    />
+  );
+};
+
+export const ExperimentTwo = () => {
+  const [data, setData] = useState<ChartDataItem[] | undefined>();
+  const [mapSVG, setMapSVG] = useState<XMLDocument | undefined>();
+  const [locationSVG, setLocationSVG] = useState<XMLDocument | undefined>();
+
+  const resourcePath = `../../experiment-data/experiment-2/`;
+
+  useEffect(() => {
+    // load data from csv file
+    d3.csv(resourcePath + "sunshine.csv", d3.autoType).then((data) =>
+      setData(toChartItem(data as SunshineDataItem[]))
+    );
+
+    // load US map from svg
+    d3.xml(resourcePath + "usa.svg").then(setMapSVG);
+    // load location map from svg
+    d3.xml(resourcePath + "location.svg").then(setLocationSVG);
+  }, [resourcePath]);
+
+  return (
+    <>
+      <ExperimentHeader
+        title={"CSE412 - Visualization Design of Sunshine in Major U.S. Cities"}
+        customElement={
+          <Illustration
+            title={"Design Rationale\n设计说明"}
+            content={"我的设计说明是这样的这样的这样的"}
+          />
+        }
       />
-    </Container>
+      <Container>
+        {mapSVG && locationSVG && data ? (
+          <Chart data={data} mapSVG={mapSVG} locationSVG={locationSVG} />
+        ) : null}
+      </Container>
+    </>
   );
 };
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  margin: 5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const IllustrationContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+`;
+
+const IllustrationTitle = styled.div`
+  width: 10%;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 2rem;
+`;
+
+const IllustrationContentBlock = styled.div`
+  width: 40%;
+  text-wrap: normal;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  border-left: 1rem solid #e7e7e7;
 `;

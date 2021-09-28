@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: reduce graph scale">
-      <change afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/location.svg" afterDir="false" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add location label">
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,13 +201,6 @@
       <workItem from="1632740075978" duration="12807000" />
       <workItem from="1632805449525" duration="1334000" />
       <workItem from="1632810392780" duration="5665000" />
-    </task>
-    <task id="LOCAL-00152" summary="feat: Add CCB logo">
-      <created>1630417663895</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1630417663895</updated>
     </task>
     <task id="LOCAL-00153" summary="refactor: Rename `recordlist` to `record`">
       <created>1630418218375</created>
@@ -545,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632844047726</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="feat: add location label">
+      <created>1632849552642</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1632849552642</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +576,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add simple routers" />
     <MESSAGE value="feat: import d3 hooks" />
     <MESSAGE value="feat: add experiment#1 chart" />
     <MESSAGE value="feat: add label number on bar" />
@@ -601,7 +600,8 @@
     <MESSAGE value="feat: add legends" />
     <MESSAGE value="feat: add experiment-2 resources" />
     <MESSAGE value="feat: reduce graph scale" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: reduce graph scale" />
+    <MESSAGE value="feat: add location label" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add location label" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
