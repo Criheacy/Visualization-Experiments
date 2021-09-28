@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add experiment-2 resources">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: reduce graph scale">
+      <change afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/location.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,13 +201,6 @@
       <workItem from="1632740075978" duration="12807000" />
       <workItem from="1632805449525" duration="1334000" />
       <workItem from="1632810392780" duration="5665000" />
-    </task>
-    <task id="LOCAL-00151" summary="feat: Add navigator to main fragment">
-      <created>1630417635392</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1630417635392</updated>
     </task>
     <task id="LOCAL-00152" summary="feat: Add CCB logo">
       <created>1630417663895</created>
@@ -543,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632746671999</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="feat: reduce graph scale">
+      <created>1632844047725</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1632844047726</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +576,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: fix lint-staged working problem" />
     <MESSAGE value="feat: add simple routers" />
     <MESSAGE value="feat: import d3 hooks" />
     <MESSAGE value="feat: add experiment#1 chart" />
@@ -599,7 +600,8 @@
     <MESSAGE value="chore: change csv reading directory" />
     <MESSAGE value="feat: add legends" />
     <MESSAGE value="feat: add experiment-2 resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add experiment-2 resources" />
+    <MESSAGE value="feat: reduce graph scale" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: reduce graph scale" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

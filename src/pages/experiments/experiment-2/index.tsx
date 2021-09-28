@@ -50,18 +50,29 @@ const toChartItem = (rawData: SunshineDataItem[]): ChartDataItem[] =>
 export const ExperimentTwo = () => {
   const [data, setData] = useState<ChartDataItem[] | undefined>();
   const [mapSVG, setMapSVG] = useState<XMLDocument | undefined>();
+  const [locationSVG, setLocationSVG] = useState<XMLDocument | undefined>();
   const { experimentId } = useParams();
+
+  const resourcePath = `../../experiment-data/experiment-${experimentId}/`;
 
   useEffect(() => {
     // load data from csv file
-    d3.csv("../../experiment-data/experiment-2/sunshine.csv", d3.autoType).then(
-      (data) => setData(toChartItem(data as SunshineDataItem[]))
+    d3.csv(resourcePath + "sunshine.csv", d3.autoType).then((data) =>
+      setData(toChartItem(data as SunshineDataItem[]))
     );
+
+    console.log(
+      "../../experiment-data/experiment-2/usa.svg" === resourcePath + "usa.svg"
+    );
+
     // load US map from svg
-    d3.xml("../../experiment-data/experiment-2/usa.svg").then((data) =>
-      setMapSVG(data)
-    );
-  }, []);
+    d3.xml(resourcePath + "usa.svg").then((data) => setMapSVG(data));
+    // load location map from svg
+    d3.xml(resourcePath + "location.svg").then((data) => {
+      console.log("data:", data);
+      setLocationSVG(data);
+    });
+  }, [experimentId, resourcePath]);
 
   // map configurations
   const mapConfig = {
@@ -77,6 +88,11 @@ export const ExperimentTwo = () => {
     fontSize: 18,
 
     blockStrokeWidth: 2,
+  };
+
+  const locationIconConfig = {
+    offset: { x: -56.5, y: -40 },
+    scale: { x: 0.07, y: 0.07 },
   };
 
   // intermediate variable for simplifying calculations
@@ -98,17 +114,9 @@ export const ExperimentTwo = () => {
 
   const svgRef = useSVG(
     (svg) => {
-      if (mapSVG) {
-        // place US map
-        svg
-          .append("g")
-          .attr("class", "background-map")
-          .attr("width", mapConfig.canvasWidth)
-          .attr("height", mapConfig.canvasHeight)
-          .node()
-          ?.append(mapSVG.documentElement);
+      if (!mapSVG || !locationSVG || !data) {
+        return;
       }
-      if (!data) return;
 
       // city plot container
       svg
@@ -129,7 +137,8 @@ export const ExperimentTwo = () => {
         .attr("x2", mapConfig.margin.left - mapConfig.blockGap)
         .attr("y1", 0)
         .attr("y2", mapConfig.canvasHeight)
-        .attr("stroke", "black");
+        .attr("stroke", "black")
+        .attr("stroke-opacity", 0.5);
 
       // right divider
       svg
@@ -140,11 +149,13 @@ export const ExperimentTwo = () => {
         .attr("x2", mapConfig.canvasWidth - mapConfig.margin.right)
         .attr("y1", 0)
         .attr("y2", mapConfig.canvasHeight)
-        .attr("stroke", "black");
+        .attr("stroke", "black")
+        .attr("stroke-opacity", 0.5);
 
       // draw standard vertical axis for each month (top aligned)
       svg.select(".plot-area").append("g").attr("class", "top-label");
       data[0].sunshine.forEach((sunshineItem, index) => {
+        // container
         svg
           .select(".top-label")
           .append("g")
@@ -153,9 +164,10 @@ export const ExperimentTwo = () => {
             "transform",
             `translate(${
               (index * contentWidth) / monthCount + mapConfig.margin.left
-            }, 20)`
+            }, 12)`
           );
 
+        // background-rect
         svg
           .select(`.${sunshineItem.month}`)
           .append("rect")
@@ -174,6 +186,7 @@ export const ExperimentTwo = () => {
           .attr("stroke-width", mapConfig.blockStrokeWidth)
           .attr("stroke-opacity", 0.15);
 
+        // label
         svg
           .select(`.${sunshineItem.month}`)
           .append("text")
@@ -186,8 +199,6 @@ export const ExperimentTwo = () => {
 
       // draw vertical axis for each city
       data.forEach((cityItem) => {
-        const cityX =
-          cityItem.longitude * mapConfig.scale.x + mapConfig.offset.x;
         const cityY =
           cityItem.latitude * mapConfig.scale.y + mapConfig.offset.y;
 
@@ -225,7 +236,13 @@ export const ExperimentTwo = () => {
             .attr("text-anchor", "middle")
             .attr("fill", colorMap(sunshineItem.value, "foreground"));
         });
+      });
 
+      data.forEach((cityItem) => {
+        const cityX =
+          cityItem.longitude * mapConfig.scale.x + mapConfig.offset.x;
+        const cityY =
+          cityItem.latitude * mapConfig.scale.y + mapConfig.offset.y;
         // city marker container
         svg
           .select(".plot-area")
@@ -249,20 +266,64 @@ export const ExperimentTwo = () => {
         // city location marker
         svg
           .select(`.city-${cityItem.city}`)
-          .append("circle")
-          .attr("r", 5)
-          .attr("fill", "#0000FF");
+          .append("g")
+          .attr(
+            "transform",
+            `translate(${locationIconConfig.offset.x}, ${locationIconConfig.offset.y})` +
+              `scale(${locationIconConfig.scale.x}, ${locationIconConfig.scale.y})`
+          )
+          .node()
+          // ATTENTION: the append method will attach the document element to DOM tree,
+          // and apparently you cannot attach one document element to multiple locations.
+          // So you should create a deep clone of it to append.
+          ?.append(locationSVG.documentElement?.cloneNode(true));
+
+        let labelXOffset = 20;
+        let labelYOffset = -30;
+
+        // the label of New-York is blocked, so set specific value for it
+        if (cityItem.city === "New-York") {
+          labelXOffset = 0;
+          labelYOffset = -55;
+        }
+
+        const labelWidth =
+          (cityItem.city.length * mapConfig.fontSize) / 2.2 + 20;
+        const labelHeight = mapConfig.fontSize + 6;
+
+        // label frame on marker
+        svg
+          .select(`.city-${cityItem.city}`)
+          .append("rect")
+          .attr("x", labelXOffset)
+          .attr("y", -labelHeight / 2 + labelYOffset)
+          .attr("width", labelWidth)
+          .attr("height", labelHeight)
+          .attr("rx", labelHeight / 2)
+          .attr("fill", "#E0E0E0");
 
         // label on marker
         svg
           .select(`.city-${cityItem.city}`)
           .append("text")
           .text(cityItem.city)
+          .attr("x", labelWidth / 2 + labelXOffset)
+          .attr("y", labelYOffset + mapConfig.fontSize / 2.5)
+          // .attr("font-family", "monospace")
           .attr("font-size", mapConfig.fontSize)
           .attr("text-anchor", "middle");
       });
+
+      // place US map
+      svg
+        .append("g")
+        .attr("class", "background-map")
+        .attr("width", mapConfig.canvasWidth)
+        .attr("height", mapConfig.canvasHeight)
+        .node()
+        ?.append(mapSVG.documentElement?.cloneNode(true));
     },
-    [data, mapSVG]
+    [data, mapSVG, locationSVG]
   );
 
   return (
