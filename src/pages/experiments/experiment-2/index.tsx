@@ -66,15 +66,15 @@ export const ExperimentTwo = () => {
   // map configurations
   const mapConfig = {
     canvasWidth: 1600,
-    canvasHeight: 720,
+    canvasHeight: 600,
     mapWidth: 1280,
-    mapHeight: 720,
+    mapHeight: 600,
     margin: { left: 160, right: 160 },
     blockGap: 5,
-    blockHeight: 24,
-    offset: { x: 2865, y: 1355 },
-    scale: { x: 21.5, y: -25.9 },
-    fontSize: 20,
+    blockHeight: 20,
+    offset: { x: 2519, y: 1130 },
+    scale: { x: 17.9, y: -21.6 },
+    fontSize: 18,
 
     blockStrokeWidth: 2,
   };
@@ -271,7 +271,7 @@ export const ExperimentTwo = () => {
         ref={svgRef}
         style={{
           width: "1600",
-          height: "720",
+          height: "600",
           margin: "auto",
         }}
       />
