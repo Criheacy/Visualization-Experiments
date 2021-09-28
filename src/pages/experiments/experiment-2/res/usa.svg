@@ -3,7 +3,9 @@
 	 id="usa_map"
 	 xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 	 viewBox="0 0 593.4 318.3"
-	 style="enable-background:new 0 0 593.4 318.3;" xml:space="preserve">
+	 width="1280"
+	 height="720"
+	 xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;}
 	.st1{fill:none;stroke:#D0D0D0;stroke-miterlimit:10;}
@@ -789,6 +791,4 @@
 	h-3h-3h-3h-3h-2.4h-2.4h-2.3h-2.4h-2.4h-2.4h-2.4h-2.3v-1.6v-1.6v-1.6v-1.6v-1.6v-1.6v-1.6l0-1.6v-2v-2v-2v-2v-2v-2v-2v-2v-2v-2v-2
 	v-2v-2v-2l0-2v-2l0-1.7v-1.6v-1.7v-1.7h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1
 	h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1h2.1l0,3.3l0,3.3l0,3.3l0,3.3l0,3.3l0,3.2l0,3.2L221.5,105.2z"/>
-<circle class="st2" cx="376" cy="120" r="1.5"/>
-<circle class="st2" cx="302.5" cy="260.2" r="1"/>
 </svg>

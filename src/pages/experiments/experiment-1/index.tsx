@@ -6,7 +6,7 @@ import PieChart from "./pie-chart";
 import TreeChart from "./tree-chart";
 import NumericChart from "./numeric-chart";
 import chroma from "chroma-js";
-import { useParams } from "react-router-dom";
+import { ExperimentHeader } from "../experiment-header";
 
 interface TitanicDisasterItem {
   Class: string;
@@ -70,7 +70,6 @@ const Legend = ({
 
 export const ExperimentOne = () => {
   const [data, setData] = useState<ChartDataItem[] | undefined>();
-  const { experimentId } = useParams();
 
   useEffect(() => {
     d3.csv(
@@ -95,11 +94,10 @@ export const ExperimentOne = () => {
     <Container>
       {data ? (
         <>
-          <Header>
-            <Title>实验#{experimentId} - 可视化入门</Title>
-            <Divider />
-            <Legend data={data} colorMap={colorMap} />
-          </Header>
+          <ExperimentHeader
+            title={"可视化入门"}
+            customElement={<Legend data={data} colorMap={colorMap} />}
+          />
           <ChartContainer id={"1"}>
             <BarChart data={data} colorMap={colorMap} />
           </ChartContainer>
@@ -129,27 +127,6 @@ const Container = styled.div`
     "chart-1 chart-2"
     "chart-3 chart-4";
   grid-gap: 1rem;
-`;
-
-const Header = styled.div`
-  grid-area: header;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.div`
-  font-size: 3rem;
-  font-weight: bold;
-`;
-
-const Divider = styled.div`
-  margin: 1rem 2rem;
-  background-color: #e0e0e0;
-  height: 2px;
-  width: 100%;
 `;
 
 const LegendGroup = styled.div`

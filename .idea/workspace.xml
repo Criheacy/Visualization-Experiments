@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add legends">
-      <change afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/sunshine.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/res/sunshine.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/res/task.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/res/usa.svg" afterDir="false" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add location label">
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/experiments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="gh-pages" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -132,6 +127,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.predeploy" />
+        <item itemvalue="npm.predeploy" />
       </list>
     </recent_temporary>
   </component>
@@ -202,28 +198,9 @@
       <workItem from="1632398195457" duration="1474000" />
       <workItem from="1632538602969" duration="11235000" />
       <workItem from="1632644361748" duration="61000" />
-      <workItem from="1632740075978" duration="5705000" />
-    </task>
-    <task id="LOCAL-00150" summary="feat: Add main navigator menu">
-      <created>1630417570343</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1630417570343</updated>
-    </task>
-    <task id="LOCAL-00151" summary="feat: Add navigator to main fragment">
-      <created>1630417635392</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1630417635392</updated>
-    </task>
-    <task id="LOCAL-00152" summary="feat: Add CCB logo">
-      <created>1630417663895</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1630417663895</updated>
+      <workItem from="1632740075978" duration="12807000" />
+      <workItem from="1632805449525" duration="1334000" />
+      <workItem from="1632810392780" duration="5665000" />
     </task>
     <task id="LOCAL-00153" summary="refactor: Rename `recordlist` to `record`">
       <created>1630418218375</created>
@@ -547,7 +524,28 @@
       <option name="project" value="LOCAL" />
       <updated>1632553802649</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="feat: add experiment-2 resources">
+      <created>1632746671998</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1632746671999</updated>
+    </task>
+    <task id="LOCAL-00200" summary="feat: reduce graph scale">
+      <created>1632844047725</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1632844047726</updated>
+    </task>
+    <task id="LOCAL-00201" summary="feat: add location label">
+      <created>1632849552642</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1632849552642</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +562,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
@@ -578,9 +576,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: add coding config" />
-    <MESSAGE value="chore: fix lint-staged working problem" />
-    <MESSAGE value="feat: add simple routers" />
     <MESSAGE value="feat: import d3 hooks" />
     <MESSAGE value="feat: add experiment#1 chart" />
     <MESSAGE value="feat: add label number on bar" />
@@ -603,7 +598,10 @@
     <MESSAGE value="deploy: test" />
     <MESSAGE value="chore: change csv reading directory" />
     <MESSAGE value="feat: add legends" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add legends" />
+    <MESSAGE value="feat: add experiment-2 resources" />
+    <MESSAGE value="feat: reduce graph scale" />
+    <MESSAGE value="feat: add location label" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add location label" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
