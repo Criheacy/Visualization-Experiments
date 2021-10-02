@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add location label">
-      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-header.tsx" afterDir="false" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add utility functions to draw background shape">
+      <change afterPath="$PROJECT_DIR$/public/experiment-data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/extra/sign-in-bot/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-1/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/experiments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,10 +77,10 @@
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src\screens\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-2\res" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1\res" />
       <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages\experiments\experiment-1" />
-      <recent name="F:\SDU-Course\3-1\Visualization\visualization-experiments\src\pages" />
       <recent name="F:\SDU-iLearn\2021-7 FrontEnd\CVAS\src" />
     </key>
   </component>
@@ -120,8 +121,8 @@
     </configuration>
     <list>
       <item itemvalue="npm.build" />
-      <item itemvalue="npm.start" />
       <item itemvalue="npm.deploy" />
+      <item itemvalue="npm.start" />
       <item itemvalue="npm.predeploy" />
     </list>
     <recent_temporary>
@@ -201,6 +202,10 @@
       <workItem from="1632740075978" duration="12807000" />
       <workItem from="1632805449525" duration="1334000" />
       <workItem from="1632810392780" duration="5665000" />
+      <workItem from="1632893171868" duration="2078000" />
+      <workItem from="1632992086521" duration="20000" />
+      <workItem from="1633004990335" duration="2618000" />
+      <workItem from="1633160906891" duration="7667000" />
     </task>
     <task id="LOCAL-00153" summary="refactor: Rename `recordlist` to `record`">
       <created>1630418218375</created>
@@ -576,7 +581,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: import d3 hooks" />
     <MESSAGE value="feat: add experiment#1 chart" />
     <MESSAGE value="feat: add label number on bar" />
     <MESSAGE value="refactor: reorganize the directory structure" />
@@ -601,7 +605,8 @@
     <MESSAGE value="feat: add experiment-2 resources" />
     <MESSAGE value="feat: reduce graph scale" />
     <MESSAGE value="feat: add location label" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add location label" />
+    <MESSAGE value="feat: add utility functions to draw background shape" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add utility functions to draw background shape" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

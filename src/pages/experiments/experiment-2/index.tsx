@@ -24,6 +24,8 @@ interface ChartDataItem {
   }[];
 }
 
+type Coordinate = { x: number; y: number } | [number, number];
+
 const toChartItem = (rawData: SunshineDataItem[]): ChartDataItem[] =>
   rawData
     .reduce((prev, rawDataItem) => {
@@ -62,6 +64,46 @@ const Illustration = ({
   );
 };
 
+/**
+ * Get the position of divider value appears throw interpolation.
+ * @param data the number array.
+ * @param divider the divider value.
+ * @param countOnEnd if true, then [-0.5, len+0.5] will be added in result.
+ * @example
+ * input:  [1, 2,   3, 4,    2, 1] divider=2.5
+ * output: [     1.5,    3.75    ]
+ * ---
+ * input:  [2.5, 2,  3,    1,     10, 2.5] divider=2.5
+ * output: [ 0,   1.5, 2.25, 3.167,    5 ]
+ */
+const getDataDivider = (
+  data: number[],
+  divider: number,
+  countOnEnd: boolean = false
+) =>
+  data.reduce((prev, item, index, array) => {
+    if (item === divider) return [...prev, index];
+    if (countOnEnd && index === 0) return [...prev, index - 0.5];
+    if (countOnEnd && index === array.length - 1) return [...prev, index + 0.5];
+    if (index === 0) return prev;
+    const midpoint = (divider - array[index - 1]) / (item - array[index - 1]);
+    if (midpoint > 0 && midpoint < 1) {
+      return [...prev, index + midpoint - 1];
+    }
+    return prev;
+  }, [] as number[]);
+
+const coordinatesToLine = (coordinates: Coordinate[]) =>
+  coordinates.reduce((prev, item, index) => {
+    let itemStr = index === 0 ? "M " : "L ";
+    if ("x" in item && "y" in item) {
+      itemStr += `${item["x"]} ${item["y"]} `;
+    } else {
+      itemStr += `${item[0]} ${item[1]} `;
+    }
+    return itemStr;
+  }, "");
+
 const Chart = ({
   data,
   mapSVG,
@@ -91,6 +133,8 @@ const Chart = ({
     offset: { x: -56.5, y: -40 },
     scale: { x: 0.07, y: 0.07 },
   };
+
+  console.log(getDataDivider([0, 2.5, 2, 3, 1, 10, 2.5, 5], 2.5, true));
 
   // intermediate variable for simplifying calculations
   const contentWidth =
@@ -189,6 +233,35 @@ const Chart = ({
           .attr("font-size", mapConfig.fontSize)
           .attr("text-anchor", "middle");
       });
+
+      // draw background shape
+      const backgroundShape = data
+        .sort((first, second) => second.latitude - first.latitude)
+        .map((cityItem) => {
+          const dividers = getDataDivider(
+            cityItem.sunshine.map((sunshineItem) => sunshineItem.value),
+            300
+          );
+          console.log("dividers", dividers);
+          const cityX = (index: number) =>
+            (index * contentWidth) / monthCount + mapConfig.margin.left;
+          const cityY =
+            cityItem.latitude * mapConfig.scale.y + mapConfig.offset.y;
+          return [
+            [cityX(dividers[0]), cityY],
+            [cityX(dividers[dividers.length - 1]), cityY],
+          ] as [[number, number], [number, number]];
+        })
+        .reduce(
+          (prev, item) => {
+            prev[0].push(item[0]);
+            prev[1].unshift(item[1]);
+            return prev;
+          },
+          [[], []] as [[number, number][], [number, number][]]
+        );
+
+      console.log("shape", [...backgroundShape[0], ...backgroundShape[1]]);
 
       // draw vertical axis for each city
       data.forEach((cityItem) => {

@@ -2,6 +2,7 @@ import { Route, Routes, useParams } from "react-router-dom";
 import styled from "@emotion/styled";
 import { ExperimentOne } from "./experiment-1";
 import { ExperimentTwo } from "./experiment-2";
+import { SignInGraph } from "../extra/sign-in-bot";
 
 export const ExperimentPage = () => {
   return (
@@ -20,6 +21,8 @@ export const Experiment = () => {
         <ExperimentOne />
       ) : +experimentId === 2 ? (
         <ExperimentTwo />
+      ) : experimentId === "extra" ? (
+        <SignInGraph />
       ) : null}
     </Container>
   );
