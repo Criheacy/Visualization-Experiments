@@ -24,7 +24,24 @@ interface ChartDataItem {
   }[];
 }
 
-type Coordinate = { x: number; y: number } | [number, number];
+interface MapConfig {
+  canvasWidth: number;
+  canvasHeight: number;
+  mapWidth: number;
+  mapHeight: number;
+  margin: { left: number; right: number };
+  blockGap: number;
+  blockHeight: number;
+  offset: Coordinate;
+  scale: Coordinate;
+  fontSize: number;
+  blockStrokeWidth: number;
+}
+
+interface Coordinate {
+  x: number;
+  y: number;
+}
 
 const toChartItem = (rawData: SunshineDataItem[]): ChartDataItem[] =>
   rawData
@@ -93,16 +110,135 @@ const getDataDivider = (
     return prev;
   }, [] as number[]);
 
-const coordinatesToLine = (coordinates: Coordinate[]) =>
-  coordinates.reduce((prev, item, index) => {
-    let itemStr = index === 0 ? "M " : "L ";
-    if ("x" in item && "y" in item) {
-      itemStr += `${item["x"]} ${item["y"]} `;
-    } else {
-      itemStr += `${item[0]} ${item[1]} `;
-    }
-    return itemStr;
-  }, "");
+const direction = (from: Coordinate, to: Coordinate) => {
+  return { x: to.x - from.x, y: to.y - from.y };
+};
+
+const distance = (c1: Coordinate, c2?: Coordinate) => {
+  return Math.sqrt(
+    Math.pow(c1.x - (c2?.x || 0), 2) + Math.pow(c1.y - (c2?.y || 0), 2)
+  );
+};
+
+const coordinatesToCurve = (coordinates: Coordinate[], roundValue: number) =>
+  coordinates
+    .map((item, index, array) => {
+      const prevItem = array[(index + array.length - 1) % array.length];
+      const nextItem = array[(index + 1) % array.length];
+
+      const vector = direction(prevItem, nextItem);
+
+      // closure function
+      const distanceFactor = (targetItem: Coordinate) => ({
+        x:
+          (vector.x / distance(vector)) *
+          distance(targetItem, item) *
+          roundValue,
+        y:
+          (vector.y / distance(vector)) *
+          distance(targetItem, item) *
+          roundValue,
+      });
+
+      const prevDistanceFactor = distanceFactor(prevItem);
+      const nextDistanceFactor = distanceFactor(nextItem);
+
+      return {
+        coordinate: item,
+        prevControl: {
+          x: item.x - prevDistanceFactor.x,
+          y: item.y - prevDistanceFactor.y,
+        },
+        nextControl: {
+          x: item.x + nextDistanceFactor.x,
+          y: item.y + nextDistanceFactor.y,
+        },
+      };
+    })
+    .reduce((prev, item, index, array) => {
+      const nextItem = array[(index + 1) % array.length];
+      let path = "";
+
+      // start of line
+      if (index === 0) {
+        path += `M ${item.coordinate.x} ${item.coordinate.y} `;
+      }
+
+      path += `C ${item.nextControl.x} ${item.nextControl.y} ${nextItem.prevControl.x} ${nextItem.prevControl.y} ${nextItem.coordinate.x} ${nextItem.coordinate.y} `;
+
+      // end of line
+      if (index === array.length - 1) {
+        path += "Z ";
+      }
+      return prev + path;
+    }, "");
+
+const coordinatesToControlPoints = (
+  coordinates: Coordinate[],
+  roundValue: number
+) =>
+  coordinates
+    .map((item, index, array) => {
+      const prevItem = array[(index + array.length - 1) % array.length];
+      const nextItem = array[(index + 1) % array.length];
+
+      return {
+        coordinate: item,
+        direction: {
+          x: nextItem.x - prevItem.x,
+          y: nextItem.y - prevItem.y,
+        },
+      };
+    })
+    .reduce((prev, item) => {
+      const path = `M ${
+        item.coordinate.x - (item.direction.x * roundValue) / 2
+      } ${item.coordinate.y - (item.direction.y * roundValue) / 2} L ${
+        item.coordinate.x + (item.direction.x * roundValue) / 2
+      } ${item.coordinate.y + (item.direction.y * roundValue) / 2} Z `;
+      return prev + path;
+    }, "");
+
+const getDividerCoordinates = (
+  data: ChartDataItem[],
+  divider: number,
+  configs: {
+    contentWidth: number;
+    monthCount: number;
+    mapConfig: MapConfig;
+  }
+) => {
+  const dividerShapeRaw = data
+    .sort((first, second) => second.latitude - first.latitude)
+    .map((cityItem) => {
+      const dividers = getDataDivider(
+        cityItem.sunshine.map((sunshineItem) => sunshineItem.value),
+        divider
+      );
+      const cityX = (index: number) =>
+        ((index + 0.5) * configs.contentWidth) / configs.monthCount +
+        configs.mapConfig.margin.left;
+      const cityY =
+        cityItem.latitude * configs.mapConfig.scale.y +
+        configs.mapConfig.offset.y;
+      return [
+        { x: cityX(dividers[0]), y: cityY },
+        { x: cityX(dividers[dividers.length - 1]), y: cityY },
+      ] as [Coordinate, Coordinate];
+    })
+    .reduce(
+      (prev, item) => {
+        prev[0].push(item[0]);
+        prev[1].unshift(item[1]);
+        return prev;
+      },
+      [[], []] as [Coordinate[], Coordinate[]]
+    );
+
+  return [...dividerShapeRaw[0], ...dividerShapeRaw[1]].filter(
+    (item) => !isNaN(item.x) && !isNaN(item.y)
+  );
+};
 
 const Chart = ({
   data,
@@ -114,7 +250,7 @@ const Chart = ({
   locationSVG: XMLDocument;
 }) => {
   // map configurations
-  const mapConfig = {
+  const mapConfig: MapConfig = {
     canvasWidth: 1600,
     canvasHeight: 600,
     mapWidth: 1280,
@@ -125,7 +261,6 @@ const Chart = ({
     offset: { x: 2519, y: 1130 },
     scale: { x: 17.9, y: -21.6 },
     fontSize: 18,
-
     blockStrokeWidth: 2,
   };
 
@@ -133,8 +268,6 @@ const Chart = ({
     offset: { x: -56.5, y: -40 },
     scale: { x: 0.07, y: 0.07 },
   };
-
-  console.log(getDataDivider([0, 2.5, 2, 3, 1, 10, 2.5, 5], 2.5, true));
 
   // intermediate variable for simplifying calculations
   const contentWidth =
@@ -234,34 +367,12 @@ const Chart = ({
           .attr("text-anchor", "middle");
       });
 
-      // draw background shape
-      const backgroundShape = data
-        .sort((first, second) => second.latitude - first.latitude)
-        .map((cityItem) => {
-          const dividers = getDataDivider(
-            cityItem.sunshine.map((sunshineItem) => sunshineItem.value),
-            300
-          );
-          console.log("dividers", dividers);
-          const cityX = (index: number) =>
-            (index * contentWidth) / monthCount + mapConfig.margin.left;
-          const cityY =
-            cityItem.latitude * mapConfig.scale.y + mapConfig.offset.y;
-          return [
-            [cityX(dividers[0]), cityY],
-            [cityX(dividers[dividers.length - 1]), cityY],
-          ] as [[number, number], [number, number]];
-        })
-        .reduce(
-          (prev, item) => {
-            prev[0].push(item[0]);
-            prev[1].unshift(item[1]);
-            return prev;
-          },
-          [[], []] as [[number, number][], [number, number][]]
-        );
-
-      console.log("shape", [...backgroundShape[0], ...backgroundShape[1]]);
+      /*
+       *
+       * origin
+       *
+       *
+       */
 
       // draw vertical axis for each city
       data.forEach((cityItem) => {
@@ -388,6 +499,44 @@ const Chart = ({
         .attr("height", mapConfig.canvasHeight)
         .node()
         ?.append(mapSVG.documentElement?.cloneNode(true));
+
+      // draw background shape
+      const roundFixedValue = 0.4;
+      const outerDividerShape = getDividerCoordinates(data, 200, {
+        contentWidth,
+        monthCount,
+        mapConfig,
+      });
+      const innerDividerShape = getDividerCoordinates(data, 300, {
+        contentWidth,
+        monthCount,
+        mapConfig,
+      });
+      console.log(coordinatesToCurve(outerDividerShape, roundFixedValue));
+
+      svg
+        .select(".plot-area")
+        .append("path")
+        .attr("class", "background-shape")
+        .attr(
+          "d",
+          coordinatesToCurve(outerDividerShape, roundFixedValue)
+          // + coordinatesToCurve(innerDividerShape, roundFixedValue)
+        )
+        .attr("stroke", "#000000")
+        .attr("fill", "#FFFF00")
+        .attr("fill-rule", "evenodd");
+
+      svg
+        .select(".plot-area")
+        .append("path")
+        .attr("class", "background-shape-controller")
+        .attr(
+          "d",
+          coordinatesToControlPoints(outerDividerShape, roundFixedValue)
+          // + coordinatesToCurve(innerDividerShape, roundFixedValue)
+        )
+        .attr("stroke", "#FF8000");
     },
     [data, mapSVG, locationSVG]
   );

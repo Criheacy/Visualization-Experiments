@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: add utility functions to draw background shape">
-      <change afterPath="$PROJECT_DIR$/public/experiment-data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/extra/sign-in-bot/index.tsx" afterDir="false" />
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: implement bezier curve generator for background shape">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/experiments/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/extra/sign-in-bot/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/extra/sign-in-bot/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,14 +203,7 @@
       <workItem from="1632893171868" duration="2078000" />
       <workItem from="1632992086521" duration="20000" />
       <workItem from="1633004990335" duration="2618000" />
-      <workItem from="1633160906891" duration="7667000" />
-    </task>
-    <task id="LOCAL-00153" summary="refactor: Rename `recordlist` to `record`">
-      <created>1630418218375</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1630418218375</updated>
+      <workItem from="1633160906891" duration="17170000" />
     </task>
     <task id="LOCAL-00154" summary="feat: Adjust fixed style for `Header` and `Aside`">
       <created>1630432795991</created>
@@ -550,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632849552642</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="feat: add utility functions to draw background shape">
+      <created>1633175725572</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1633175725572</updated>
+    </task>
+    <option name="localTasksCounter" value="203" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,7 +579,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add experiment#1 chart" />
     <MESSAGE value="feat: add label number on bar" />
     <MESSAGE value="refactor: reorganize the directory structure" />
     <MESSAGE value="fix: swap bar color for female and male" />
@@ -606,7 +603,8 @@
     <MESSAGE value="feat: reduce graph scale" />
     <MESSAGE value="feat: add location label" />
     <MESSAGE value="feat: add utility functions to draw background shape" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add utility functions to draw background shape" />
+    <MESSAGE value="feat: implement bezier curve generator for background shape" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implement bezier curve generator for background shape" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
