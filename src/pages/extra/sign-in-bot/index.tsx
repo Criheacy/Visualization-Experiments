@@ -10,7 +10,6 @@ interface SignInDataItem {
 }
 
 export const SignInGraph = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [data, setData] = useState<SignInDataItem[] | undefined>();
 
   useEffect(() => {
@@ -22,5 +21,5 @@ export const SignInGraph = () => {
     );
   }, []);
 
-  return <></>;
+  return <>{`${data}`}</>;
 };

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: implement bezier curve generator for background shape">
+    <list default="true" id="78755606-1054-4b4b-a3f5-2223ff8e5bd4" name="Default Changelist" comment="feat: adjust curve style">
+      <change afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/design-rationale.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/experiment-data/experiment-2/usa.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/experiments/experiment-2/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/extra/sign-in-bot/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/extra/sign-in-bot/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,14 +205,7 @@
       <workItem from="1632893171868" duration="2078000" />
       <workItem from="1632992086521" duration="20000" />
       <workItem from="1633004990335" duration="2618000" />
-      <workItem from="1633160906891" duration="22534000" />
-    </task>
-    <task id="LOCAL-00155" summary="feat: Add breadcrumb navigator">
-      <created>1630432843933</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1630432843933</updated>
+      <workItem from="1633160906891" duration="26736000" />
     </task>
     <task id="LOCAL-00156" summary="feat: Adjust navigator style">
       <created>1630465570523</created>
@@ -547,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633194038215</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="feat: adjust curve style">
+      <created>1633226826856</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1633226826856</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +581,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add label number on bar" />
     <MESSAGE value="refactor: reorganize the directory structure" />
     <MESSAGE value="fix: swap bar color for female and male" />
     <MESSAGE value="chore: change d3 version from `v7.0.1` to `v6.7.0`" />
@@ -603,7 +605,8 @@
     <MESSAGE value="feat: add location label" />
     <MESSAGE value="feat: add utility functions to draw background shape" />
     <MESSAGE value="feat: implement bezier curve generator for background shape" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: implement bezier curve generator for background shape" />
+    <MESSAGE value="feat: adjust curve style" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: adjust curve style" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

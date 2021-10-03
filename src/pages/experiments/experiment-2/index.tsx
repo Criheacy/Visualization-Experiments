@@ -81,6 +81,26 @@ const Illustration = ({
   );
 };
 
+const Legend = ({
+  colorMap,
+}: {
+  colorMap: (value: number, type: "foreground" | "background") => string;
+}) => {
+  return (
+    <LegendGroup>
+      <LegendLabel>Sunshine Value:</LegendLabel>
+      {[50, 100, 150, 200, 250, 300, 350].map((item) => (
+        <LegendCard
+          backgroundColor={colorMap(item, "background")}
+          foregroundColor={colorMap(item, "foreground")}
+        >
+          {item}
+        </LegendCard>
+      ))}
+    </LegendGroup>
+  );
+};
+
 /**
  * Get the position of divider value appears throw interpolation.
  * @param data the number array.
@@ -112,16 +132,27 @@ const getDataDivider = (
     return prev;
   }, [] as number[]);
 
+/**
+ * Get direction vector of which started at `from` and ended at `to`.
+ */
 const direction = (from: Coordinate, to: Coordinate) => {
   return { x: to.x - from.x, y: to.y - from.y };
 };
 
+/**
+ * Get distance from `c1` to `c2`. if only one coordinate is given, returns its magnitude.
+ */
 const distance = (c1: Coordinate, c2?: Coordinate) => {
   return Math.sqrt(
     Math.pow(c1.x - (c2?.x || 0), 2) + Math.pow(c1.y - (c2?.y || 0), 2)
   );
 };
 
+/**
+ * Link an array of coordinates and returns the curve.
+ * @param coordinates coordinates to be linked
+ * @param roundValue the factor value of bezier curve, better in range from 0.3 to 0.7
+ */
 const coordinatesToCurve = (coordinates: Coordinate[], roundValue: number) =>
   coordinates
     .map((item, index, array) => {
@@ -129,12 +160,14 @@ const coordinatesToCurve = (coordinates: Coordinate[], roundValue: number) =>
       const nextItem = array[(index + 1) % array.length];
 
       const vector = direction(prevItem, nextItem);
-      // fixed distance value
+      // control points at top/bottom doesn't perform well
+      // add this to extend those control points
+      // (comments the next two lines to see what has changed)
       if (distance(vector) > 600) {
         vector.y *= 6;
       }
 
-      // closure function
+      // closure function (factory)
       const distanceFactor = (targetItem: Coordinate) => ({
         x:
           (vector.x / distance(vector)) *
@@ -179,6 +212,12 @@ const coordinatesToCurve = (coordinates: Coordinate[], roundValue: number) =>
       return prev + path;
     }, "");
 
+/**
+ * Divides a sequence of chart data, returns the coordinates of the splitters.
+ * @param data the chart data to be divided
+ * @param divider a value for divide
+ * @param configs configurations
+ */
 const getDividerCoordinates = (
   data: ChartDataItem[],
   divider: number,
@@ -208,6 +247,7 @@ const getDividerCoordinates = (
       ] as [Coordinate, Coordinate];
     })
     .reduce(
+      // insert new element at middle of the previous
       (prev, item) => {
         prev[0].push(item[0]);
         prev[1].unshift(item[1]);
@@ -216,6 +256,7 @@ const getDividerCoordinates = (
       [[], []] as [Coordinate[], Coordinate[]]
     );
 
+  // clean undivided elements
   return [...dividerShapeRaw[0], ...dividerShapeRaw[1]].filter(
     (item) => !isNaN(item.x) && !isNaN(item.y)
   );
@@ -225,10 +266,12 @@ const Chart = ({
   data,
   mapSVG,
   locationSVG,
+  colorMap,
 }: {
   data: ChartDataItem[];
   mapSVG: XMLDocument;
   locationSVG: XMLDocument;
+  colorMap: (value: number, type: "foreground" | "background") => string;
 }) => {
   // map configurations
   const mapConfig: MapConfig = {
@@ -254,22 +297,9 @@ const Chart = ({
   const contentWidth =
     mapConfig.canvasWidth - mapConfig.margin.left - mapConfig.margin.right;
 
-  const colorMap = (
-    value: number,
-    type: "foreground" | "background" = "background"
-  ) => {
-    if (type === "foreground") {
-      return 1 - value / 365 < 0.45 ? "black" : "white";
-    } else {
-      return chroma
-        .bezier(["yellow", "red", "black"])(1 - value / 365)
-        .hex();
-    }
-  };
-
   const svgRef = useSVG(
     (svg) => {
-      // city plot container
+      /************************* MAIN PLOT AREA ************************/
       svg
         .append("g")
         .attr("class", "plot-area")
@@ -278,7 +308,7 @@ const Chart = ({
 
       const monthCount = data[0].sunshine.length; // 12
 
-      // dividers
+      /****************************** AXIS *****************************/
       // left divider
       svg
         .select(".plot-area")
@@ -303,8 +333,10 @@ const Chart = ({
         .attr("stroke", "black")
         .attr("stroke-opacity", 0.5);
 
+      /**************************** TOP AXIS ***************************/
       // draw standard vertical axis for each month (top aligned)
       svg.select(".plot-area").append("g").attr("class", "top-label");
+
       data[0].sunshine.forEach((sunshineItem, index) => {
         // container
         svg
@@ -348,7 +380,8 @@ const Chart = ({
           .attr("text-anchor", "middle");
       });
 
-      // background shape mask
+      /*********************** BACKGROUND SHAPE ************************/
+      // mask
       svg
         .select(".plot-area")
         .append("mask")
@@ -360,6 +393,7 @@ const Chart = ({
         .attr("y", mapConfig.margin.top)
         .attr("fill", "white");
 
+      // container
       svg
         .select(".plot-area")
         .append("g")
@@ -387,29 +421,35 @@ const Chart = ({
             roundFixedValue
           );
 
+          // shape curve
           svg
             .select(".background-shape-container")
             .append("path")
             .attr("class", "background-shape")
             .attr("d", outer + inner)
             .attr("mask", "url(#background-mask)")
-            .attr("fill", colorMap(dividerValue))
+            .attr("fill", colorMap(dividerValue, "background"))
             .attr("fill-opacity", 0.45)
             .attr("fill-rule", "evenodd")
-            .attr("stroke", chroma(colorMap(dividerValue)).darken(1).hex())
+            .attr(
+              "stroke",
+              chroma(colorMap(dividerValue, "background")).darken(1).hex()
+            )
             .attr("stroke-width", 2)
             .attr("stroke-opacity", 0.5);
         }
       );
 
+      /*************************** MAIN PLOT ***************************/
       // draw vertical axis for each city
       data.forEach((cityItem) => {
+        /***************** MAIN PLOT => SUNSHINE BLOCK *****************/
+
         const cityY =
           cityItem.latitude * mapConfig.scale.y + mapConfig.offset.y;
-
         // draw block for each month
         cityItem.sunshine.forEach((sunshineItem, index) => {
-          // block container
+          // container
           svg
             .select(".plot-area")
             .append("g")
@@ -428,9 +468,9 @@ const Chart = ({
             .attr("y", -mapConfig.blockHeight / 2)
             .attr("width", contentWidth / monthCount - mapConfig.blockGap)
             .attr("height", mapConfig.blockHeight)
-            .attr("fill", colorMap(sunshineItem.value));
+            .attr("fill", colorMap(sunshineItem.value, "background"));
 
-          // text on sunshine block
+          // label text on sunshine block
           svg
             .select(`.${cityItem.city}-${sunshineItem.month}`)
             .append("text")
@@ -444,6 +484,8 @@ const Chart = ({
       });
 
       data.forEach((cityItem) => {
+        /************** MAIN PLOT => LEFT LATITUDE LABEL ***************/
+
         const cityX =
           cityItem.longitude * mapConfig.scale.x + mapConfig.offset.x;
         const cityY =
@@ -468,6 +510,7 @@ const Chart = ({
           .attr("text-anchor", "end")
           .text(cityItem.latitude.toFixed(1) + "°N");
 
+        /****************** MAIN PLOT => CITY LOCATOR ******************/
         // city location marker
         svg
           .select(`.city-${cityItem.city}`)
@@ -519,6 +562,7 @@ const Chart = ({
           .attr("text-anchor", "middle");
       });
 
+      /***************************** US MAP ****************************/
       // place US map
       svg
         .append("g")
@@ -562,20 +606,48 @@ export const ExperimentTwo = () => {
     d3.xml(resourcePath + "location.svg").then(setLocationSVG);
   }, [resourcePath]);
 
+  const colorMap = (
+    value: number,
+    type: "foreground" | "background" = "background"
+  ) => {
+    if (type === "foreground") {
+      return 1 - value / 365 < 0.45 ? "black" : "white";
+    } else {
+      return chroma
+        .bezier(["yellow", "red", "black"])(1 - value / 365)
+        .hex();
+    }
+  };
+
   return (
     <>
       <ExperimentHeader
         title={"CSE412 - Visualization Design of Sunshine in Major U.S. Cities"}
         customElement={
-          <Illustration
-            title={"Design Rationale\n设计说明"}
-            content={"我的设计说明是这样的这样的这样的"}
-          />
+          <>
+            <Illustration
+              title={"Design Rationale\n设计说明"}
+              content={
+                "这幅图取了数据中对阳光量影响最大的两个影响因子 —— 纬度与月份，主要展示此二者与阳光量的关系。" +
+                "因为数据中给出了每个城市的经纬度坐标，联想到可以用地图展示这些城市的位置关系，纬度即为天然的" +
+                "纵坐标，再用月份替换掉对阳光量影响不大的经度信息，即得到了该图的主体部分。同时，光照量的强度" +
+                "使用从黑色到黄色的色阶来形象的展示亮度值，并将数值标于其上，符合人的直觉。此外，在背景部分使" +
+                "用等轴测线来大致描述地图上其它区域的光照量情况，从离散的数据建立连续的映射关系，方便人们进行" +
+                "估计和预测。"
+              }
+            />
+            <Legend colorMap={colorMap} />
+          </>
         }
       />
       <Container>
         {mapSVG && locationSVG && data ? (
-          <Chart data={data} mapSVG={mapSVG} locationSVG={locationSVG} />
+          <Chart
+            data={data}
+            mapSVG={mapSVG}
+            locationSVG={locationSVG}
+            colorMap={colorMap}
+          />
         ) : null}
       </Container>
     </>
@@ -584,7 +656,7 @@ export const ExperimentTwo = () => {
 
 const Container = styled.div`
   width: 100%;
-  margin: 5rem 0;
+  padding: 2rem 0 8rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -598,7 +670,7 @@ const IllustrationContainer = styled.div`
 `;
 
 const IllustrationTitle = styled.div`
-  width: 10%;
+  width: 12%;
   font-size: 2rem;
   font-weight: bold;
   text-align: right;
@@ -606,9 +678,34 @@ const IllustrationTitle = styled.div`
 `;
 
 const IllustrationContentBlock = styled.div`
-  width: 40%;
+  width: 55%;
   text-wrap: normal;
   padding-left: 1rem;
   padding-top: 0.5rem;
   border-left: 1rem solid #e7e7e7;
+`;
+
+const LegendGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2rem;
+`;
+
+const LegendLabel = styled.div`
+  width: 12rem;
+  text-align: right;
+  font-weight: bold;
+`;
+
+const LegendCard = styled.div<{
+  backgroundColor: string;
+  foregroundColor: string;
+}>`
+  margin: 0 0.6rem;
+  padding: 0.1rem 0;
+  width: 6.5rem;
+  background-color: ${(props) => props.backgroundColor};
+  text-align: center;
+  color: ${(props) => props.foregroundColor};
 `;
