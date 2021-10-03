@@ -29,7 +29,7 @@ interface MapConfig {
   canvasHeight: number;
   mapWidth: number;
   mapHeight: number;
-  margin: { left: number; right: number };
+  margin: { left: number; right: number; top: number };
   blockGap: number;
   blockHeight: number;
   offset: Coordinate;
@@ -85,7 +85,7 @@ const Illustration = ({
  * Get the position of divider value appears throw interpolation.
  * @param data the number array.
  * @param divider the divider value.
- * @param countOnEnd if true, then [-0.5, len+0.5] will be added in result.
+ * @param numberOnEnd if true, then [-1, len+1] will be added in result.
  * @example
  * input:  [1, 2,   3, 4,    2, 1] divider=2.5
  * output: [     1.5,    3.75    ]
@@ -96,12 +96,14 @@ const Illustration = ({
 const getDataDivider = (
   data: number[],
   divider: number,
-  countOnEnd: boolean = false
+  numberOnEnd?: boolean
 ) =>
   data.reduce((prev, item, index, array) => {
     if (item === divider) return [...prev, index];
-    if (countOnEnd && index === 0) return [...prev, index - 0.5];
-    if (countOnEnd && index === array.length - 1) return [...prev, index + 0.5];
+    if (numberOnEnd && index === 0 && divider < item)
+      return [...prev, index - 1];
+    if (numberOnEnd && index === array.length - 1 && divider < item)
+      return [...prev, index + 1];
     if (index === 0) return prev;
     const midpoint = (divider - array[index - 1]) / (item - array[index - 1]);
     if (midpoint > 0 && midpoint < 1) {
@@ -127,6 +129,10 @@ const coordinatesToCurve = (coordinates: Coordinate[], roundValue: number) =>
       const nextItem = array[(index + 1) % array.length];
 
       const vector = direction(prevItem, nextItem);
+      // fixed distance value
+      if (distance(vector) > 600) {
+        vector.y *= 6;
+      }
 
       // closure function
       const distanceFactor = (targetItem: Coordinate) => ({
@@ -173,32 +179,6 @@ const coordinatesToCurve = (coordinates: Coordinate[], roundValue: number) =>
       return prev + path;
     }, "");
 
-const coordinatesToControlPoints = (
-  coordinates: Coordinate[],
-  roundValue: number
-) =>
-  coordinates
-    .map((item, index, array) => {
-      const prevItem = array[(index + array.length - 1) % array.length];
-      const nextItem = array[(index + 1) % array.length];
-
-      return {
-        coordinate: item,
-        direction: {
-          x: nextItem.x - prevItem.x,
-          y: nextItem.y - prevItem.y,
-        },
-      };
-    })
-    .reduce((prev, item) => {
-      const path = `M ${
-        item.coordinate.x - (item.direction.x * roundValue) / 2
-      } ${item.coordinate.y - (item.direction.y * roundValue) / 2} L ${
-        item.coordinate.x + (item.direction.x * roundValue) / 2
-      } ${item.coordinate.y + (item.direction.y * roundValue) / 2} Z `;
-      return prev + path;
-    }, "");
-
 const getDividerCoordinates = (
   data: ChartDataItem[],
   divider: number,
@@ -213,7 +193,8 @@ const getDividerCoordinates = (
     .map((cityItem) => {
       const dividers = getDataDivider(
         cityItem.sunshine.map((sunshineItem) => sunshineItem.value),
-        divider
+        divider,
+        true
       );
       const cityX = (index: number) =>
         ((index + 0.5) * configs.contentWidth) / configs.monthCount +
@@ -255,7 +236,7 @@ const Chart = ({
     canvasHeight: 600,
     mapWidth: 1280,
     mapHeight: 600,
-    margin: { left: 160, right: 160 },
+    margin: { left: 160, right: 160, top: 27.5 },
     blockGap: 5,
     blockHeight: 20,
     offset: { x: 2519, y: 1130 },
@@ -367,12 +348,59 @@ const Chart = ({
           .attr("text-anchor", "middle");
       });
 
-      /*
-       *
-       * origin
-       *
-       *
-       */
+      // background shape mask
+      svg
+        .select(".plot-area")
+        .append("mask")
+        .attr("id", "background-mask")
+        .append("rect")
+        .attr("width", mapConfig.mapWidth - mapConfig.blockGap)
+        .attr("height", mapConfig.mapHeight - mapConfig.margin.top)
+        .attr("x", mapConfig.margin.left)
+        .attr("y", mapConfig.margin.top)
+        .attr("fill", "white");
+
+      svg
+        .select(".plot-area")
+        .append("g")
+        .attr("class", "background-shape-container");
+
+      // draw background shape
+      const roundFixedValue = 0.5;
+
+      [50, 100, 150, 200, 250, 300, 335].forEach(
+        (dividerValue, index, array) => {
+          if (index === 0) return;
+
+          const configs = {
+            contentWidth,
+            monthCount,
+            mapConfig,
+          };
+          const outer = coordinatesToCurve(
+            getDividerCoordinates(data, dividerValue, configs),
+            roundFixedValue
+          );
+
+          const inner = coordinatesToCurve(
+            getDividerCoordinates(data, array[index - 1], configs),
+            roundFixedValue
+          );
+
+          svg
+            .select(".background-shape-container")
+            .append("path")
+            .attr("class", "background-shape")
+            .attr("d", outer + inner)
+            .attr("mask", "url(#background-mask)")
+            .attr("fill", colorMap(dividerValue))
+            .attr("fill-opacity", 0.45)
+            .attr("fill-rule", "evenodd")
+            .attr("stroke", chroma(colorMap(dividerValue)).darken(1).hex())
+            .attr("stroke-width", 2)
+            .attr("stroke-opacity", 0.5);
+        }
+      );
 
       // draw vertical axis for each city
       data.forEach((cityItem) => {
@@ -477,7 +505,8 @@ const Chart = ({
           .attr("width", labelWidth)
           .attr("height", labelHeight)
           .attr("rx", labelHeight / 2)
-          .attr("fill", "#E0E0E0");
+          .attr("fill", "black")
+          .attr("fill-opacity", 0.15);
 
         // label on marker
         svg
@@ -486,7 +515,6 @@ const Chart = ({
           .text(cityItem.city)
           .attr("x", labelWidth / 2 + labelXOffset)
           .attr("y", labelYOffset + mapConfig.fontSize / 2.5)
-          // .attr("font-family", "monospace")
           .attr("font-size", mapConfig.fontSize)
           .attr("text-anchor", "middle");
       });
@@ -499,44 +527,6 @@ const Chart = ({
         .attr("height", mapConfig.canvasHeight)
         .node()
         ?.append(mapSVG.documentElement?.cloneNode(true));
-
-      // draw background shape
-      const roundFixedValue = 0.4;
-      const outerDividerShape = getDividerCoordinates(data, 200, {
-        contentWidth,
-        monthCount,
-        mapConfig,
-      });
-      const innerDividerShape = getDividerCoordinates(data, 300, {
-        contentWidth,
-        monthCount,
-        mapConfig,
-      });
-      console.log(coordinatesToCurve(outerDividerShape, roundFixedValue));
-
-      svg
-        .select(".plot-area")
-        .append("path")
-        .attr("class", "background-shape")
-        .attr(
-          "d",
-          coordinatesToCurve(outerDividerShape, roundFixedValue)
-          // + coordinatesToCurve(innerDividerShape, roundFixedValue)
-        )
-        .attr("stroke", "#000000")
-        .attr("fill", "#FFFF00")
-        .attr("fill-rule", "evenodd");
-
-      svg
-        .select(".plot-area")
-        .append("path")
-        .attr("class", "background-shape-controller")
-        .attr(
-          "d",
-          coordinatesToControlPoints(outerDividerShape, roundFixedValue)
-          // + coordinatesToCurve(innerDividerShape, roundFixedValue)
-        )
-        .attr("stroke", "#FF8000");
     },
     [data, mapSVG, locationSVG]
   );
