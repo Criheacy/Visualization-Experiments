@@ -3,10 +3,12 @@ import styled from "@emotion/styled";
 import { ExperimentOne } from "./experiment-1";
 import { ExperimentTwo } from "./experiment-2";
 import { SignInGraph } from "../extra/sign-in-bot";
+import { ExperimentList } from "./experiment-list";
 
 export const ExperimentPage = () => {
   return (
     <Routes>
+      <Route path={"/"} element={<ExperimentList />} />
       <Route path={":experimentId/*"} element={<Experiment />} />
     </Routes>
   );
